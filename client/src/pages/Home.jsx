@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import heroImg from "../assets/hero.png";
 import yogaImg from "../assets/yoga.png";
 import strengthImg from "../assets/strength.png";
@@ -31,12 +32,18 @@ const Home = () => {
             pushes you further.
           </p>
           <div className="flex gap-4">
-            <button className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:scale-105">
+            <Link
+              to="/login"
+              className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:scale-105"
+            >
               Start Your Journey
-            </button>
-            <button className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 transition-all">
-              View Programs
-            </button>
+            </Link>
+            <Link
+              to="/pricing"
+              className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 transition-all"
+            >
+              View Pricing
+            </Link>
           </div>
         </div>
       </div>

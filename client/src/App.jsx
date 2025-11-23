@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
+import Pricing from "./pages/Pricing";
+import Payment from "./pages/Payment";
 import Contact from "./pages/Contact";
 
 const Layout = () => {
@@ -26,6 +28,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/payment/:plan" element={<Payment />} />
           <Route path="/contact" element={<Contact />} />
         </Route>
         <Route path="/login" element={<Login />} />
