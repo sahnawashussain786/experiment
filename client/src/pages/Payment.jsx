@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import {
+  SignedIn,
+  SignedOut,
+  RedirectToSignIn,
+  useUser,
+  useAuth,
+} from "@clerk/clerk-react";
 
-const Payment = () => {
+const PaymentContent = () => {
   const { plan } = useParams();
   const navigate = useNavigate();
+  const { user } = useUser();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("card"); // 'card' or 'upi'
@@ -17,19 +25,45 @@ const Payment = () => {
 
   const selectedPlan = planDetails[plan] || planDetails.basic;
 
-  const handleSubmit = (e) => {
+  const { getToken } = useAuth();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate payment processing
-    setTimeout(() => {
+    try {
+      const token = await getToken();
+
+      // In a real app, you would gather form data here
+      const paymentData = {
+        plan: selectedPlan.name,
+        paymentMethod,
+        amount: selectedPlan.price,
+      };
+
+      const response = await fetch("http://localhost:5000/api/payment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(paymentData),
+      });
+
+      if (response.ok) {
+        setSuccess(true);
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      } else {
+        alert("Payment failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Payment Error:", error);
+      alert("An error occurred during payment.");
+    } finally {
       setLoading(false);
-      setSuccess(true);
-      // Redirect to home after 3 seconds
-      setTimeout(() => {
-        navigate("/");
-      }, 3000);
-    }, 2000);
+    }
   };
 
   if (success) {
@@ -161,6 +195,7 @@ const Payment = () => {
                     required
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
                     placeholder="John Doe"
+                    defaultValue={user?.fullName || ""}
                   />
                 </div>
 
@@ -302,6 +337,19 @@ const Payment = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+const Payment = () => {
+  return (
+    <>
+      <SignedIn>
+        <PaymentContent />
+      </SignedIn>
+      <SignedOut>
+        <RedirectToSignIn />
+      </SignedOut>
+    </>
   );
 };
 

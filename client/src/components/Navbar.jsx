@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { SignedIn, SignedOut, UserButton, SignInButton } from "@clerk/clerk-react";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -67,14 +68,26 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <Link to="/login">
-        <button
-          type="button"
-          className="bg-gradient-to-r from-indigo-600 to-violet-600 text-white md:inline hidden text-sm font-semibold hover:shadow-lg hover:shadow-indigo-500/30 active:scale-95 transition-all w-36 h-11 rounded-full"
-        >
-          Get Started
-        </button>
-      </Link>
+      <div className="hidden md:flex items-center gap-4">
+        <SignedOut>
+          <Link to="/sign-in">
+            <button className="text-gray-300 hover:text-white font-medium transition-colors">
+              Sign In
+            </button>
+          </Link>
+          <Link to="/sign-up">
+            <button
+              type="button"
+              className="bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-indigo-500/30 active:scale-95 transition-all w-32 h-10 rounded-full"
+            >
+              Get Started
+            </button>
+          </Link>
+        </SignedOut>
+        <SignedIn>
+          <UserButton afterSignOutUrl="/" />
+        </SignedIn>
+      </div>
 
       <button
         aria-label="menu-btn"
@@ -126,17 +139,32 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <Link to="/login" className="block mt-8">
-          <button
-            type="button"
-            className="bg-gradient-to-r from-indigo-600 to-violet-600 text-white w-full py-3 rounded-full font-bold shadow-lg"
-          >
-            Get Started
-          </button>
-        </Link>
+        <div className="mt-8 flex flex-col gap-4">
+          <SignedOut>
+            <Link to="/sign-in" className="block">
+              <button className="w-full py-3 text-gray-300 hover:text-white font-medium border border-white/10 rounded-full">
+                Sign In
+              </button>
+            </Link>
+            <Link to="/sign-up" className="block">
+              <button
+                type="button"
+                className="bg-gradient-to-r from-indigo-600 to-violet-600 text-white w-full py-3 rounded-full font-bold shadow-lg"
+              >
+                Get Started
+              </button>
+            </Link>
+          </SignedOut>
+          <SignedIn>
+            <div className="flex justify-center">
+              <UserButton afterSignOutUrl="/" />
+            </div>
+          </SignedIn>
+        </div>
       </div>
     </nav>
   );
 };
 
 export default Navbar;
+

@@ -1,6 +1,33 @@
 import React from "react";
 
 const Contact = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+        e.target.reset();
+      } else {
+        alert("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred.");
+    }
+  };
+
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
@@ -116,16 +143,18 @@ const Contact = () => {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Send us a Message
             </h2>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     First Name
                   </label>
                   <input
+                    name="firstName"
                     type="text"
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
                     placeholder="John"
+                    required
                   />
                 </div>
                 <div>
@@ -133,9 +162,11 @@ const Contact = () => {
                     Last Name
                   </label>
                   <input
+                    name="lastName"
                     type="text"
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
                     placeholder="Doe"
+                    required
                   />
                 </div>
               </div>
@@ -144,9 +175,11 @@ const Contact = () => {
                   Email Address
                 </label>
                 <input
+                  name="email"
                   type="email"
                   className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
                   placeholder="john@example.com"
+                  required
                 />
               </div>
               <div>
@@ -154,9 +187,11 @@ const Contact = () => {
                   Message
                 </label>
                 <textarea
+                  name="message"
                   rows="4"
                   className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition"
                   placeholder="How can we help you?"
+                  required
                 ></textarea>
               </div>
               <button
