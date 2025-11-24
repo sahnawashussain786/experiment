@@ -6,7 +6,7 @@ const Services = () => {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <div className="relative w-full h-[50vh]">
+      <div className="relative w-full h-[40vh] md:h-[50vh] min-h-[300px]">
         <div className="absolute inset-0">
           <img
             src={servicesHero}
@@ -16,10 +16,10 @@ const Services = () => {
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in-up">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 animate-fade-in-up">
             OUR SERVICES
           </h1>
-          <p className="text-gray-200 text-lg md:text-xl max-w-2xl">
+          <p className="text-gray-200 text-base md:text-xl max-w-2xl">
             Comprehensive fitness solutions designed to help you reach your peak
             performance.
           </p>
@@ -27,9 +27,9 @@ const Services = () => {
       </div>
 
       {/* Services Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             {[
               {
                 title: "Personal Training",
@@ -58,10 +58,10 @@ const Services = () => {
             ].map((service, idx) => (
               <div
                 key={idx}
-                className="flex flex-col md:flex-row gap-6 p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all bg-white"
+                className="flex flex-col sm:flex-row gap-6 p-6 md:p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all bg-white"
               >
                 <div
-                  className={`w-16 h-16 ${service.color} rounded-2xl flex items-center justify-center flex-shrink-0 text-white shadow-lg`}
+                  className={`w-16 h-16 ${service.color} rounded-2xl flex items-center justify-center flex-shrink-0 text-white shadow-lg mx-auto sm:mx-0`}
                 >
                   <svg
                     className="w-8 h-8"
@@ -77,11 +77,11 @@ const Services = () => {
                     ></path>
                   </svg>
                 </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <div className="text-center sm:text-left">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                     {service.desc}
                   </p>
                 </div>

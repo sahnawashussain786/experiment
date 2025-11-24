@@ -5,8 +5,8 @@ const Pricing = () => {
   return (
     <div className="w-full overflow-x-hidden bg-zinc-50">
       {/* Hero Section */}
-      <div className="relative w-full py-24 bg-zinc-900 text-center px-6">
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in-up">
+      <div className="relative w-full py-16 md:py-24 bg-zinc-900 text-center px-6">
+        <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 animate-fade-in-up">
           INVEST IN{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">
             YOURSELF
@@ -18,8 +18,8 @@ const Pricing = () => {
       </div>
 
       {/* Pricing Cards */}
-      <section className="py-20 max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-8">
+      <section className="py-16 md:py-20 max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Basic Plan */}
           <div className="bg-white p-8 rounded-3xl border border-gray-200 flex flex-col hover:shadow-xl transition-all">
             <h3 className="text-2xl font-bold text-gray-900 mb-2">Basic</h3>

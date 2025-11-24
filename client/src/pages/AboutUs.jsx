@@ -8,7 +8,7 @@ const AboutUs = () => {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <div className="relative w-full h-[60vh]">
+      <div className="relative w-full h-[40vh] md:h-[60vh] min-h-[400px]">
         <div className="absolute inset-0">
           <img
             src={aboutHero}
@@ -18,10 +18,10 @@ const AboutUs = () => {
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in-up">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 animate-fade-in-up">
             OUR STORY
           </h1>
-          <p className="text-gray-200 text-lg md:text-xl max-w-2xl">
+          <p className="text-gray-200 text-base md:text-xl max-w-2xl">
             More than just a gym. We are a movement dedicated to physical and
             mental transformation.
           </p>
@@ -29,27 +29,27 @@ const AboutUs = () => {
       </div>
 
       {/* Our Story Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="order-2 md:order-1">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Built on Passion
             </h2>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <p className="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">
               Founded in 2015, FitLife began with a simple mission: to create a
               space where everyone, regardless of their fitness level, feels
               empowered to push their limits. What started as a small garage gym
               has grown into a state-of-the-art facility, but our core values
               remain the same.
             </p>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed text-sm md:text-base">
               We believe in the power of community, the science of training, and
               the art of discipline. Every piece of equipment, every class, and
               every trainer is handpicked to ensure you get the best experience
               possible.
             </p>
           </div>
-          <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl order-1 md:order-2">
             <img
               src={aboutHero}
               alt="Gym History"
@@ -60,10 +60,12 @@ const AboutUs = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-zinc-900">
+      <section className="py-16 md:py-20 bg-zinc-900">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-16">Meet The Team</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 md:mb-16">
+            Meet The Team
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { name: "John Doe", role: "Head Trainer", img: trainer1 },
               { name: "Sarah Smith", role: "Yoga Instructor", img: trainer2 },
@@ -73,7 +75,7 @@ const AboutUs = () => {
                 key={idx}
                 className="group relative overflow-hidden rounded-xl bg-zinc-800"
               >
-                <div className="h-80 overflow-hidden">
+                <div className="h-64 md:h-80 overflow-hidden">
                   <img
                     src={trainer.img}
                     alt={trainer.name}
@@ -93,12 +95,12 @@ const AboutUs = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-zinc-50">
+      <section className="py-16 md:py-20 bg-zinc-50">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12 md:mb-16">
             Our Core Values
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 title: "Community",

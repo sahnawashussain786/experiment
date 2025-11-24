@@ -31,22 +31,22 @@ const Contact = () => {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <div className="relative w-full h-[40vh] bg-zinc-900 flex items-center justify-center">
+      <div className="relative w-full h-[30vh] md:h-[40vh] bg-zinc-900 flex items-center justify-center">
         <div className="text-center px-6">
-          <h1 className="text-5xl font-bold text-white mb-4 animate-fade-in-up">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in-up">
             GET IN TOUCH
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-base md:text-lg">
             We'd love to hear from you. Visit us, call us, or send a message.
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-16">
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           {/* Contact Info */}
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+          <div className="order-2 md:order-1">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
               Contact Information
             </h2>
             <div className="space-y-8">
@@ -139,12 +139,12 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
+          <div className="bg-white p-6 md:p-8 rounded-3xl shadow-xl border border-gray-100 order-1 md:order-2">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Send us a Message
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     First Name
@@ -196,7 +196,7 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full py-4 bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:scale-[1.02]"
+                className="w-full py-4 bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:scale-[1.02] cursor-pointer"
               >
                 Send Message
               </button>
@@ -205,7 +205,7 @@ const Contact = () => {
         </div>
 
         {/* Map Placeholder */}
-        <div className="mt-20 rounded-3xl overflow-hidden h-96 bg-zinc-800 relative flex items-center justify-center group cursor-pointer">
+        <div className="mt-16 md:mt-20 rounded-3xl overflow-hidden h-64 md:h-96 bg-zinc-800 relative flex items-center justify-center group cursor-pointer">
           <div className="absolute inset-0 bg-[url('https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/-118.2437,34.0522,12,0/1200x600?access_token=YOUR_TOKEN')] bg-cover bg-center opacity-50 group-hover:opacity-60 transition"></div>
           <div className="relative z-10 text-center">
             <div className="w-16 h-16 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-indigo-500/50 animate-bounce">

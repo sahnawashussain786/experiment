@@ -22,9 +22,12 @@ const Layout = () => {
   );
 };
 
+import ScrollToTop from "./components/ScrollToTop";
+
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />

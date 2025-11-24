@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <div className="relative w-full h-screen">
+      <div className="relative w-full h-screen min-h-[600px]">
         <div className="absolute inset-0">
           <img
             src={heroImg}
@@ -20,27 +20,27 @@ const Home = () => {
         </div>
 
         <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-16 lg:px-24 xl:px-32">
-          <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-6 animate-fade-in-up">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight mb-6 animate-fade-in-up">
             UNLEASH YOUR <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">
               FULL POTENTIAL
             </span>
           </h1>
-          <p className="text-gray-300 text-lg md:text-xl max-w-xl mb-10">
+          <p className="text-gray-300 text-base sm:text-lg md:text-xl max-w-xl mb-10">
             Join the elite fitness community where technology meets sweat.
             Experience world-class equipment, expert trainers, and a vibe that
             pushes you further.
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
             <Link
               to="/login"
-              className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:scale-105"
+              className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:scale-105 text-center"
             >
               Start Your Journey
             </Link>
             <Link
               to="/pricing"
-              className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 transition-all"
+              className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 transition-all text-center"
             >
               View Pricing
             </Link>
@@ -70,10 +70,10 @@ const Home = () => {
       </div>
 
       {/* Classes Section */}
-      <section className="py-20 bg-zinc-50">
+      <section className="py-16 md:py-20 bg-zinc-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Premium Classes
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -82,7 +82,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 title: "Yoga & Mindfulness",
@@ -108,13 +108,13 @@ const Home = () => {
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-full h-96 object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-80 md:h-96 object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent z-20">
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 bg-gradient-to-t from-black/90 to-transparent z-20">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                  <p className="text-gray-200 text-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300">
                     {item.desc}
                   </p>
                 </div>
