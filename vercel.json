@@ -2,15 +2,17 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
+      "src": "client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "buildCommand": "npm run build",
-        "outputDirectory": "client/dist"
+        "distDir": "dist"
       }
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/client/dist/$1" }
+    { "src": "/assets/(.*)", "dest": "/client/assets/$1" },
+    { "src": "/(.*)\\.(ico|png|jpg|jpeg|svg|css|js)", "dest": "/client/$1.$2" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/client/index.html" }
   ]
 }
