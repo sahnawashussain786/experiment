@@ -26,7 +26,7 @@ const Navbar = () => {
         className="flex items-center gap-2 group"
         onClick={closeMenu}
       >
-        {/* Logo Placeholder - Replaced SVG with text/icon combo for now */}
+        {/* Logo Placeholder */}
         <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-violet-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:shadow-indigo-500/50 transition-all">
           F
         </div>
@@ -35,6 +35,7 @@ const Navbar = () => {
         </span>
       </Link>
 
+      {/* Desktop navigation */}
       <ul className="text-gray-300 md:flex hidden items-center gap-8 font-medium">
         <li>
           <Link
@@ -78,7 +79,9 @@ const Navbar = () => {
         </li>
       </ul>
 
+      {/* Right side actions */}
       <div className="flex items-center gap-4">
+        {/* Desktop sign buttons */}
         <div className="hidden md:flex items-center gap-4">
           <SignedOut>
             <Link to="/sign-in">
@@ -96,12 +99,29 @@ const Navbar = () => {
             </Link>
           </SignedOut>
         </div>
-
-        {/* User Button - Visible on all screens */}
+        {/* Mobile sign buttons (outside the collapsible menu) */}
+        <div className="flex md:hidden items-center gap-2">
+          <SignedOut>
+            <Link to="/sign-in" onClick={closeMenu}>
+              <button className="text-gray-300 hover:text-white font-medium transition-colors cursor-pointer">
+                Sign In
+              </button>
+            </Link>
+            <Link to="/sign-up" onClick={closeMenu}>
+              <button
+                type="button"
+                className="bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-indigo-500/30 active:scale-95 transition-all w-24 h-9 rounded-full cursor-pointer"
+              >
+                Get Started
+              </button>
+            </Link>
+          </SignedOut>
+        </div>
+        {/* User Button - always visible */}
         <SignedIn>
           <UserButton afterSignOutUrl="/" />
         </SignedIn>
-
+        {/* Mobile menu toggle */}
         <button
           aria-label="menu-btn"
           type="button"
@@ -120,8 +140,8 @@ const Navbar = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           ) : (
             <svg
@@ -135,17 +155,18 @@ const Navbar = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
             </svg>
           )}
         </button>
       </div>
 
+      {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="mobile-menu absolute top-[80px] left-0 w-full bg-zinc-900/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden shadow-2xl z-40 animate-fade-in-up">
-          <ul className="flex flex-col space-y-6 text-gray-300 text-lg font-medium text-center">
+          <ul className="flex flex-col space-y-6 text-gray-300 text-lg font-medium text-center mb-6">
             <li>
               <Link
                 to="/"
@@ -192,23 +213,6 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          <div className="mt-8 flex flex-col gap-4">
-            <SignedOut>
-              <Link to="/sign-in" className="block" onClick={closeMenu}>
-                <button className="w-full py-3 text-gray-300 hover:text-white font-medium border border-white/10 rounded-full cursor-pointer">
-                  Sign In
-                </button>
-              </Link>
-              <Link to="/sign-up" className="block" onClick={closeMenu}>
-                <button
-                  type="button"
-                  className="bg-gradient-to-r from-indigo-600 to-violet-600 text-white w-full py-3 rounded-full font-bold shadow-lg cursor-pointer"
-                >
-                  Get Started
-                </button>
-              </Link>
-            </SignedOut>
-          </div>
         </div>
       )}
     </nav>
