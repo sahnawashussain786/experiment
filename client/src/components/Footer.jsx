@@ -42,11 +42,6 @@ const Footer = () => {
             <h4 className="text-white font-bold mb-6">Company</h4>
             <ul className="space-y-4 text-sm">
               <li>
-                <Link to="/about" className="hover:text-indigo-400 transition">
-                  About Us
-                </Link>
-              </li>
-              <li>
                 <Link
                   to="/careers"
                   className="hover:text-indigo-400 transition"
@@ -71,6 +66,11 @@ const Footer = () => {
             <h4 className="text-white font-bold mb-6">Quick Links</h4>
             <ul className="space-y-4 text-sm">
               <li>
+                <Link to="/" className="hover:text-indigo-400 transition">
+                  Home
+                </Link>
+              </li>
+              <li>
                 <Link
                   to="/services"
                   className="hover:text-indigo-400 transition"
@@ -87,16 +87,16 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/about" className="hover:text-indigo-400 transition">
+                  About Us
+                </Link>
+              </li>
+              <li>
                 <Link
                   to="/contact"
                   className="hover:text-indigo-400 transition"
                 >
                   Contact
-                </Link>
-              </li>
-              <li>
-                <Link to="/login" className="hover:text-indigo-400 transition">
-                  Member Login
                 </Link>
               </li>
             </ul>
