@@ -59,6 +59,27 @@ const AboutUs = () => {
         </div>
       </section>
 
+      {/* Stats Counter */}
+      <section className="py-16 bg-indigo-600 text-white">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            { label: "Years Strong", value: "8+" },
+            { label: "Happy Members", value: "15k+" },
+            { label: "Locations", value: "12" },
+            { label: "Awards Won", value: "25+" },
+          ].map((stat, idx) => (
+            <div key={idx} className="flex flex-col items-center">
+              <span className="text-4xl md:text-5xl font-bold mb-2 animate-pulse">
+                {stat.value}
+              </span>
+              <span className="text-indigo-200 uppercase tracking-wider text-sm">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Team Section */}
       <section className="py-16 md:py-20 bg-zinc-900">
         <div className="max-w-7xl mx-auto px-6 text-center">
@@ -141,6 +162,38 @@ const AboutUs = () => {
                   {value.title}
                 </h3>
                 <p className="text-gray-600">{value.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+            Inside <span className="text-indigo-600">FitLife</span>
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+            {[
+              "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1000",
+              "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&q=80&w=1000",
+              "https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&q=80&w=1000",
+              "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&q=80&w=1000",
+              "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=1000",
+              "https://images.unsplash.com/photo-1605296867304-6f77ac88cb02?auto=format&fit=crop&q=80&w=1000",
+            ].map((img, idx) => (
+              <div
+                key={idx}
+                className={`rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer ${
+                  idx === 0 || idx === 3 ? "col-span-2 row-span-2" : ""
+                }`}
+              >
+                <img
+                  src={img}
+                  alt="Gym Gallery"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                />
               </div>
             ))}
           </div>

@@ -91,6 +91,82 @@ const Services = () => {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <section className="py-20 bg-zinc-900 text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center mb-16">
+            How It <span className="text-indigo-500">Works</span>
+          </h2>
+          <div className="grid md:grid-cols-3 gap-12 relative">
+            {/* Connecting Line (Desktop) */}
+            <div className="hidden md:block absolute top-12 left-0 w-full h-1 bg-gradient-to-r from-indigo-600 to-violet-600 transform -translate-y-1/2 z-0 opacity-30"></div>
+
+            {[
+              {
+                step: "01",
+                title: "Consultation",
+                desc: "We start with a thorough assessment of your fitness level, goals, and medical history.",
+              },
+              {
+                step: "02",
+                title: "Custom Plan",
+                desc: "Our experts design a tailored training and nutrition program just for you.",
+              },
+              {
+                step: "03",
+                title: "Real Results",
+                desc: "Follow the plan, track your progress, and see the transformation unfold.",
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="relative z-10 text-center">
+                <div className="w-24 h-24 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-6 border-4 border-zinc-900 shadow-xl">
+                  <span className="text-3xl font-bold text-indigo-500">
+                    {item.step}
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+                <p className="text-gray-400 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services FAQ Section */}
+      <section className="py-20 bg-zinc-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Common Questions
+          </h2>
+          <div className="grid gap-6">
+            {[
+              {
+                q: "Do I need to book classes in advance?",
+                a: "Yes, we recommend booking at least 24 hours in advance via our mobile app to secure your spot.",
+              },
+              {
+                q: "Are personal trainers included in the membership?",
+                a: "Personal training is an add-on service, but Elite members get 2 complimentary sessions per month.",
+              },
+              {
+                q: "What should I bring to my first session?",
+                a: "Just bring comfortable workout clothes, a water bottle, and a towel. We provide everything else!",
+              },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
+              >
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {item.q}
+                </h3>
+                <p className="text-gray-600">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-zinc-900 text-center">
         <div className="max-w-4xl mx-auto px-6">

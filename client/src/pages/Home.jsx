@@ -46,6 +46,22 @@ const Home = () => {
             </Link>
           </div>
         </div>
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <svg
+            className="w-6 h-6 text-white/50"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            ></path>
+          </svg>
+        </div>
       </div>
 
       {/* Stats Section */}
@@ -237,6 +253,72 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="py-20 bg-zinc-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
+            Stories of <span className="text-indigo-600">Transformation</span>
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Sarah Jenkins",
+                role: "Member since 2021",
+                quote:
+                  "FitLife completely changed my perspective on fitness. The community here is unmatched.",
+                img: "https://randomuser.me/api/portraits/women/44.jpg",
+              },
+              {
+                name: "Mike Ross",
+                role: "Pro Athlete",
+                quote:
+                  "The facilities are world-class. Everything I need for my training is right here.",
+                img: "https://randomuser.me/api/portraits/men/32.jpg",
+              },
+              {
+                name: "Emily Chen",
+                role: "Yoga Enthusiast",
+                quote:
+                  "The yoga classes are my sanctuary. The instructors are incredibly knowledgeable and supportive.",
+                img: "https://randomuser.me/api/portraits/women/68.jpg",
+              },
+            ].map((testimonial, idx) => (
+              <div
+                key={idx}
+                className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <img
+                    src={testimonial.img}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <h4 className="font-bold text-gray-900">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 italic">"{testimonial.quote}"</p>
+                <div className="flex text-yellow-400 mt-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
@@ -331,6 +413,105 @@ const Home = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Blog Preview Section */}
+      <section className="py-20 bg-zinc-900">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <h2 className="text-4xl font-bold text-white mb-4">
+                Latest from the <span className="text-indigo-500">Blog</span>
+              </h2>
+              <p className="text-gray-400">
+                Expert tips, nutrition advice, and success stories.
+              </p>
+            </div>
+            <Link
+              to="/blog"
+              className="hidden md:block text-indigo-400 hover:text-indigo-300 font-medium"
+            >
+              View all articles &rarr;
+            </Link>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "10 Tips for Building Muscle",
+                category: "Training",
+                date: "Oct 12, 2023",
+                img: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=1000",
+              },
+              {
+                title: "The Ultimate Guide to Meal Prep",
+                category: "Nutrition",
+                date: "Oct 08, 2023",
+                img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=1000",
+              },
+              {
+                title: "Mindfulness in Motion",
+                category: "Wellness",
+                date: "Oct 05, 2023",
+                img: "https://images.unsplash.com/photo-1544367563-12123d896889?auto=format&fit=crop&q=80&w=1000",
+              },
+            ].map((post, idx) => (
+              <div
+                key={idx}
+                className="group cursor-pointer bg-zinc-800 rounded-2xl overflow-hidden hover:transform hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={post.img}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex justify-between text-xs text-gray-400 mb-3">
+                    <span className="text-indigo-400 font-medium">
+                      {post.category}
+                    </span>
+                    <span>{post.date}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm line-clamp-2">
+                    Discover the secrets to achieving your fitness goals with
+                    our comprehensive guide...
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-20 bg-indigo-600 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Join the Movement
+          </h2>
+          <p className="text-indigo-100 text-lg mb-10 max-w-2xl mx-auto">
+            Subscribe to our newsletter for exclusive workout plans, nutrition
+            tips, and member-only offers.
+          </p>
+          <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1 px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-indigo-200 focus:outline-none focus:bg-white/20 transition backdrop-blur-sm"
+            />
+            <button
+              type="button"
+              className="px-8 py-4 bg-white text-indigo-600 font-bold rounded-full hover:bg-gray-100 transition shadow-lg"
+            >
+              Subscribe
+            </button>
+          </form>
         </div>
       </section>
     </div>
