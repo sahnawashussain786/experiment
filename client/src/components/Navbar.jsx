@@ -99,24 +99,7 @@ const Navbar = () => {
             </Link>
           </SignedOut>
         </div>
-        {/* Mobile sign buttons (outside the collapsible menu) */}
-        <div className="flex md:hidden items-center gap-2">
-          <SignedOut>
-            <Link to="/sign-in" onClick={closeMenu}>
-              <button className="text-gray-300 hover:text-white font-medium transition-colors cursor-pointer">
-                Sign In
-              </button>
-            </Link>
-            <Link to="/sign-up" onClick={closeMenu}>
-              <button
-                type="button"
-                className="bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-indigo-500/30 active:scale-95 transition-all w-24 h-9 rounded-full cursor-pointer"
-              >
-                Get Started
-              </button>
-            </Link>
-          </SignedOut>
-        </div>
+
         {/* User Button - always visible */}
         <SignedIn>
           <UserButton afterSignOutUrl="/" />
@@ -213,6 +196,23 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
+          <div className="flex flex-col gap-4 items-center border-t border-white/10 pt-6">
+            <SignedOut>
+              <Link to="/sign-in" onClick={closeMenu} className="w-full">
+                <button className="w-full text-gray-300 hover:text-white font-medium transition-colors cursor-pointer py-2">
+                  Sign In
+                </button>
+              </Link>
+              <Link to="/sign-up" onClick={closeMenu} className="w-full">
+                <button
+                  type="button"
+                  className="w-full bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold hover:shadow-lg hover:shadow-indigo-500/30 active:scale-95 transition-all py-3 rounded-full cursor-pointer"
+                >
+                  Get Started
+                </button>
+              </Link>
+            </SignedOut>
+          </div>
         </div>
       )}
     </nav>
