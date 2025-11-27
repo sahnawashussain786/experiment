@@ -3,6 +3,8 @@ import aboutHero from "../assets/about_hero.png";
 import trainer1 from "../assets/trainer1.png";
 import trainer2 from "../assets/trainer2.png";
 import trainer3 from "../assets/strength.png"; // Using strength image as placeholder for 3rd trainer
+import yogaImg from "../assets/yoga.png";
+import cardioImg from "../assets/cardio.png";
 
 const AboutUs = () => {
   return (
@@ -175,27 +177,22 @@ const AboutUs = () => {
             Inside <span className="text-indigo-600">FitLife</span>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
-            {[
-              "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1000",
-              "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&q=80&w=1000",
-              "https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&q=80&w=1000",
-              "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&q=80&w=1000",
-              "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=1000",
-              "https://images.unsplash.com/photo-1605296867304-6f77ac88cb02?auto=format&fit=crop&q=80&w=1000",
-            ].map((img, idx) => (
-              <div
-                key={idx}
-                className={`rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer ${
-                  idx === 0 || idx === 3 ? "col-span-2 row-span-2" : ""
-                }`}
-              >
-                <img
-                  src={img}
-                  alt="Gym Gallery"
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-            ))}
+            {[aboutHero, trainer1, trainer2, trainer3, yogaImg, cardioImg].map(
+              (img, idx) => (
+                <div
+                  key={idx}
+                  className={`rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer ${
+                    idx === 0 || idx === 3 ? "col-span-2 row-span-2" : ""
+                  }`}
+                >
+                  <img
+                    src={img}
+                    alt="Gym Gallery"
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+              )
+            )}
           </div>
         </div>
       </section>

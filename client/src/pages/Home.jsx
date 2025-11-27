@@ -266,21 +266,21 @@ const Home = () => {
                 role: "Member since 2021",
                 quote:
                   "FitLife completely changed my perspective on fitness. The community here is unmatched.",
-                img: "https://randomuser.me/api/portraits/women/44.jpg",
+                img: "https://ui-avatars.com/api/?name=Sarah+Jenkins&background=random",
               },
               {
                 name: "Mike Ross",
                 role: "Pro Athlete",
                 quote:
                   "The facilities are world-class. Everything I need for my training is right here.",
-                img: "https://randomuser.me/api/portraits/men/32.jpg",
+                img: "https://ui-avatars.com/api/?name=Mike+Ross&background=random",
               },
               {
                 name: "Emily Chen",
                 role: "Yoga Enthusiast",
                 quote:
                   "The yoga classes are my sanctuary. The instructors are incredibly knowledgeable and supportive.",
-                img: "https://randomuser.me/api/portraits/women/68.jpg",
+                img: "https://ui-avatars.com/api/?name=Emily+Chen&background=random",
               },
             ].map((testimonial, idx) => (
               <div
@@ -441,19 +441,19 @@ const Home = () => {
                 title: "10 Tips for Building Muscle",
                 category: "Training",
                 date: "Oct 12, 2023",
-                img: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=1000",
+                img: strengthImg,
               },
               {
                 title: "The Ultimate Guide to Meal Prep",
                 category: "Nutrition",
                 date: "Oct 08, 2023",
-                img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=1000",
+                img: cardioImg,
               },
               {
                 title: "Mindfulness in Motion",
                 category: "Wellness",
                 date: "Oct 05, 2023",
-                img: "https://images.unsplash.com/photo-1544367563-12123d896889?auto=format&fit=crop&q=80&w=1000",
+                img: yogaImg,
               },
             ].map((post, idx) => (
               <div
