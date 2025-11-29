@@ -5,6 +5,8 @@ import yogaImg from "../assets/yoga.png";
 import strengthImg from "../assets/strength.png";
 import cardioImg from "../assets/cardio.png";
 
+import { classes } from "../data/classes";
+
 const Home = () => {
   return (
     <div className="w-full overflow-x-hidden">
@@ -94,31 +96,16 @@ const Home = () => {
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               From high-intensity cardio to serene yoga sessions, we have
-              something for every fitness level.
+              something for every fitness level. Click on a class to learn more.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Yoga & Mindfulness",
-                img: yogaImg,
-                desc: "Find your balance and inner peace with our expert-led yoga sessions.",
-              },
-              {
-                title: "Strength Training",
-                img: strengthImg,
-                desc: "Build muscle and power with our state-of-the-art free weights and machines.",
-              },
-              {
-                title: "HIIT & Cardio",
-                img: cardioImg,
-                desc: "Burn calories and boost endurance in our high-energy cardio zones.",
-              },
-            ].map((item, idx) => (
-              <div
+            {classes.map((item, idx) => (
+              <Link
+                to={`/classes/${item.id}`}
                 key={idx}
-                className="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer"
+                className="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer block"
               >
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all z-10"></div>
                 <img
@@ -131,10 +118,10 @@ const Home = () => {
                     {item.title}
                   </h3>
                   <p className="text-gray-200 text-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300">
-                    {item.desc}
+                    {item.shortDesc}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

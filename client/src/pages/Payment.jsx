@@ -12,6 +12,7 @@ const PaymentContent = () => {
   const { plan } = useParams();
   const navigate = useNavigate();
   const { user } = useUser();
+  const { getToken } = useAuth();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("card"); // 'card' or 'upi'
@@ -24,8 +25,6 @@ const PaymentContent = () => {
   };
 
   const selectedPlan = planDetails[plan] || planDetails.basic;
-
-  const { getToken } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

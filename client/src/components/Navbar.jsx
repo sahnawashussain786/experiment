@@ -1,11 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  SignedIn,
-  SignedOut,
-  UserButton,
-  SignInButton,
-} from "@clerk/clerk-react";
+import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -98,12 +93,13 @@ const Navbar = () => {
               </button>
             </Link>
           </SignedOut>
+
+          {/* User Button - always visible */}
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
         </div>
 
-        {/* User Button - always visible */}
-        <SignedIn>
-          <UserButton afterSignOutUrl="/" />
-        </SignedIn>
         {/* Mobile menu toggle */}
         <button
           aria-label="menu-btn"
@@ -212,6 +208,11 @@ const Navbar = () => {
                 </button>
               </Link>
             </SignedOut>
+            <SignedIn>
+              <div className="flex items-center justify-center w-full py-2">
+                <UserButton afterSignOutUrl="/" />
+              </div>
+            </SignedIn>
           </div>
         </div>
       )}

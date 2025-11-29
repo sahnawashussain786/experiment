@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
 import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
 import Pricing from "./pages/Pricing";
@@ -11,6 +10,8 @@ import Payment from "./pages/Payment";
 import Contact from "./pages/Contact";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
+import ClassDetails from "./pages/ClassDetails";
+import ScrollToTop from "./components/ScrollToTop";
 
 const Layout = () => {
   return (
@@ -21,8 +22,6 @@ const Layout = () => {
     </>
   );
 };
-
-import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
@@ -38,8 +37,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/sign-in/*" element={<SignInPage />} />
           <Route path="/sign-up/*" element={<SignUpPage />} />
+          <Route path="/classes/:id" element={<ClassDetails />} />
         </Route>
-        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
