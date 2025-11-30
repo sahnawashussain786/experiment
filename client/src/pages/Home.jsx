@@ -9,47 +9,53 @@ import { classes } from "../data/classes";
 
 const Home = () => {
   return (
-    <div className="w-full overflow-x-hidden">
+    <div className="w-full overflow-x-hidden bg-deep-bg text-white">
       {/* Hero Section */}
-      <div className="relative w-full h-screen min-h-[600px]">
-        <div className="absolute inset-0">
+      <div className="relative w-full h-screen min-h-[600px] flex items-center">
+        <div className="absolute inset-0 z-0">
           <img
             src={heroImg}
             alt="Gym Hero"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-deep-bg via-deep-bg/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-deep-bg via-transparent to-transparent"></div>
         </div>
 
-        <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-16 lg:px-24 xl:px-32">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight mb-6 animate-fade-in-up">
+        {/* Animated Glows */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-purple/30 rounded-full blur-[128px] animate-pulse-glow"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-blue/20 rounded-full blur-[128px] animate-pulse-glow delay-1000"></div>
+
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-16 lg:px-24 xl:px-32 flex flex-col justify-center h-full">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold leading-tight mb-6 animate-fade-in-up font-heading">
             UNLEASH YOUR <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue via-neon-purple to-neon-cyan">
               FULL POTENTIAL
             </span>
           </h1>
-          <p className="text-gray-300 text-base sm:text-lg md:text-xl max-w-xl mb-10">
+          <p className="text-gray-300 text-lg sm:text-xl md:text-2xl max-w-2xl mb-10 font-light leading-relaxed">
             Join the elite fitness community where technology meets sweat.
             Experience world-class equipment, expert trainers, and a vibe that
             pushes you further.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-6">
             <Link
-              to="/login"
-              className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:scale-105 text-center"
+              to="/sign-in"
+              className="px-10 py-4 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-bold rounded-full hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-all transform hover:scale-105 text-center text-lg border border-white/10"
             >
               Start Your Journey
             </Link>
             <Link
               to="/pricing"
-              className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 transition-all text-center"
+              className="px-10 py-4 bg-white/5 backdrop-blur-md border border-white/10 text-white font-bold rounded-full hover:bg-white/10 hover:border-neon-cyan/50 transition-all text-center text-lg hover:text-neon-cyan"
             >
               View Pricing
             </Link>
           </div>
         </div>
+
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
           <svg
             className="w-6 h-6 text-white/50"
             fill="none"
@@ -67,7 +73,7 @@ const Home = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="bg-zinc-900 py-12 border-b border-zinc-800">
+      <div className="bg-zinc-900/50 backdrop-blur-sm py-16 border-y border-white/5 relative z-20">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
             { label: "Active Members", value: "2,000+" },
@@ -75,11 +81,11 @@ const Home = () => {
             { label: "Classes Weekly", value: "100+" },
             { label: "Satisfaction", value: "99%" },
           ].map((stat, index) => (
-            <div key={index} className="flex flex-col items-center">
-              <span className="text-3xl md:text-4xl font-bold text-white mb-2">
+            <div key={index} className="flex flex-col items-center group">
+              <span className="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:text-neon-cyan transition-colors font-heading">
                 {stat.value}
               </span>
-              <span className="text-gray-400 text-sm uppercase tracking-wider">
+              <span className="text-gray-400 text-sm uppercase tracking-wider font-medium">
                 {stat.label}
               </span>
             </div>
@@ -88,13 +94,13 @@ const Home = () => {
       </div>
 
       {/* Classes Section */}
-      <section className="py-16 md:py-20 bg-zinc-50">
+      <section className="py-24 bg-deep-bg relative">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Premium Classes
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-heading">
+              Our Premium <span className="text-neon-purple">Classes</span>
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
               From high-intensity cardio to serene yoga sessions, we have
               something for every fitness level. Click on a class to learn more.
             </p>
@@ -105,19 +111,19 @@ const Home = () => {
               <Link
                 to={`/classes/${item.id}`}
                 key={idx}
-                className="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer block"
+                className="group relative overflow-hidden rounded-3xl border border-white/5 bg-card-bg shadow-2xl cursor-pointer block hover:border-neon-purple/50 transition-all duration-500"
               >
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all z-10"></div>
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all z-10"></div>
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-full h-80 md:h-96 object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-96 object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 bg-gradient-to-t from-black/90 to-transparent z-20">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+                <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-deep-bg via-deep-bg/90 to-transparent z-20">
+                  <h3 className="text-2xl font-bold text-white mb-2 font-heading group-hover:text-neon-cyan transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-gray-200 text-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300">
+                  <p className="text-gray-300 text-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300">
                     {item.shortDesc}
                   </p>
                 </div>
@@ -128,13 +134,14 @@ const Home = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-20 bg-zinc-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <section className="py-24 bg-zinc-900/30 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-blue/10 rounded-full blur-[100px]"></div>
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
           <div>
-            <h2 className="text-4xl font-bold mb-6">
-              Why Choose <span className="text-indigo-500">FitLife?</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 font-heading">
+              Why Choose <span className="text-neon-blue">FitLife?</span>
             </h2>
-            <p className="text-gray-400 mb-8 text-lg">
+            <p className="text-gray-400 mb-10 text-lg leading-relaxed">
               We're not just a gym; we're a community dedicated to your
               transformation. Our facilities are designed to inspire and
               motivate.
@@ -146,10 +153,10 @@ const Home = () => {
                 "Mobile app for tracking progress",
                 "Sauna and recovery zones",
               ].map((feature, i) => (
-                <div key={i} className="flex items-center gap-4">
-                  <div className="w-6 h-6 rounded-full bg-indigo-500 flex items-center justify-center">
+                <div key={i} className="flex items-center gap-4 group">
+                  <div className="w-8 h-8 rounded-full bg-neon-blue/20 flex items-center justify-center group-hover:bg-neon-blue transition-colors">
                     <svg
-                      className="w-4 h-4 text-white"
+                      className="w-4 h-4 text-neon-blue group-hover:text-white transition-colors"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -162,16 +169,18 @@ const Home = () => {
                       ></path>
                     </svg>
                   </div>
-                  <span className="text-lg">{feature}</span>
+                  <span className="text-lg text-gray-200 group-hover:text-white transition-colors">
+                    {feature}
+                  </span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-4 mt-8">
-              <div className="h-48 bg-zinc-800 rounded-2xl p-6 flex flex-col justify-center items-center hover:bg-zinc-700 transition">
+          <div className="grid grid-cols-2 gap-6">
+            <div className="space-y-6 mt-12">
+              <div className="h-56 bg-card-bg border border-white/5 rounded-3xl p-8 flex flex-col justify-center items-center hover:bg-zinc-800 hover:border-neon-blue/30 hover:shadow-[0_0_20px_rgba(99,102,241,0.1)] transition-all duration-300 group">
                 <svg
-                  className="w-10 h-10 text-indigo-500 mb-4"
+                  className="w-12 h-12 text-neon-blue mb-6 group-hover:scale-110 transition-transform"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -179,15 +188,17 @@ const Home = () => {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="2"
+                    strokeWidth="1.5"
                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   ></path>
                 </svg>
-                <span className="font-semibold">Open 24/7</span>
+                <span className="font-bold text-lg font-heading">
+                  Open 24/7
+                </span>
               </div>
-              <div className="h-48 bg-zinc-800 rounded-2xl p-6 flex flex-col justify-center items-center hover:bg-zinc-700 transition">
+              <div className="h-56 bg-card-bg border border-white/5 rounded-3xl p-8 flex flex-col justify-center items-center hover:bg-zinc-800 hover:border-neon-purple/30 hover:shadow-[0_0_20px_rgba(139,92,246,0.1)] transition-all duration-300 group">
                 <svg
-                  className="w-10 h-10 text-indigo-500 mb-4"
+                  className="w-12 h-12 text-neon-purple mb-6 group-hover:scale-110 transition-transform"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -195,17 +206,19 @@ const Home = () => {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="2"
+                    strokeWidth="1.5"
                     d="M13 10V3L4 14h7v7l9-11h-7z"
                   ></path>
                 </svg>
-                <span className="font-semibold">High Energy</span>
+                <span className="font-bold text-lg font-heading">
+                  High Energy
+                </span>
               </div>
             </div>
-            <div className="space-y-4">
-              <div className="h-48 bg-zinc-800 rounded-2xl p-6 flex flex-col justify-center items-center hover:bg-zinc-700 transition">
+            <div className="space-y-6">
+              <div className="h-56 bg-card-bg border border-white/5 rounded-3xl p-8 flex flex-col justify-center items-center hover:bg-zinc-800 hover:border-neon-cyan/30 hover:shadow-[0_0_20px_rgba(6,182,212,0.1)] transition-all duration-300 group">
                 <svg
-                  className="w-10 h-10 text-indigo-500 mb-4"
+                  className="w-12 h-12 text-neon-cyan mb-6 group-hover:scale-110 transition-transform"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -213,15 +226,17 @@ const Home = () => {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="2"
+                    strokeWidth="1.5"
                     d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                   ></path>
                 </svg>
-                <span className="font-semibold">Community</span>
+                <span className="font-bold text-lg font-heading">
+                  Community
+                </span>
               </div>
-              <div className="h-48 bg-zinc-800 rounded-2xl p-6 flex flex-col justify-center items-center hover:bg-zinc-700 transition">
+              <div className="h-56 bg-card-bg border border-white/5 rounded-3xl p-8 flex flex-col justify-center items-center hover:bg-zinc-800 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 group">
                 <svg
-                  className="w-10 h-10 text-indigo-500 mb-4"
+                  className="w-12 h-12 text-white mb-6 group-hover:scale-110 transition-transform"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -229,11 +244,11 @@ const Home = () => {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="2"
+                    strokeWidth="1.5"
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   ></path>
                 </svg>
-                <span className="font-semibold">Results</span>
+                <span className="font-bold text-lg font-heading">Results</span>
               </div>
             </div>
           </div>
@@ -241,10 +256,10 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-zinc-50">
+      <section className="py-24 bg-deep-bg">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
-            Stories of <span className="text-indigo-600">Transformation</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16 font-heading">
+            Stories of <span className="text-neon-cyan">Transformation</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -253,46 +268,48 @@ const Home = () => {
                 role: "Member since 2021",
                 quote:
                   "FitLife completely changed my perspective on fitness. The community here is unmatched.",
-                img: "https://ui-avatars.com/api/?name=Sarah+Jenkins&background=random",
+                img: "https://ui-avatars.com/api/?name=Sarah+Jenkins&background=6366f1&color=fff",
               },
               {
                 name: "Mike Ross",
                 role: "Pro Athlete",
                 quote:
                   "The facilities are world-class. Everything I need for my training is right here.",
-                img: "https://ui-avatars.com/api/?name=Mike+Ross&background=random",
+                img: "https://ui-avatars.com/api/?name=Mike+Ross&background=8b5cf6&color=fff",
               },
               {
                 name: "Emily Chen",
                 role: "Yoga Enthusiast",
                 quote:
                   "The yoga classes are my sanctuary. The instructors are incredibly knowledgeable and supportive.",
-                img: "https://ui-avatars.com/api/?name=Emily+Chen&background=random",
+                img: "https://ui-avatars.com/api/?name=Emily+Chen&background=06b6d4&color=fff",
               },
             ].map((testimonial, idx) => (
               <div
                 key={idx}
-                className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition"
+                className="bg-card-bg p-8 rounded-3xl border border-white/5 hover:border-neon-blue/30 hover:shadow-xl transition-all duration-300"
               >
                 <div className="flex items-center gap-4 mb-6">
                   <img
                     src={testimonial.img}
                     alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover"
+                    className="w-14 h-14 rounded-full object-cover border-2 border-white/10"
                   />
                   <div>
-                    <h4 className="font-bold text-gray-900">
+                    <h4 className="font-bold text-white text-lg font-heading">
                       {testimonial.name}
                     </h4>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    <p className="text-sm text-neon-blue">{testimonial.role}</p>
                   </div>
                 </div>
-                <p className="text-gray-600 italic">"{testimonial.quote}"</p>
-                <div className="flex text-yellow-400 mt-4">
+                <p className="text-gray-400 italic leading-relaxed">
+                  "{testimonial.quote}"
+                </p>
+                <div className="flex text-yellow-400 mt-6 gap-1">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
-                      className="w-4 h-4"
+                      className="w-5 h-5"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -307,10 +324,10 @@ const Home = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-zinc-900/30">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-16">
-            Simple Pricing
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 font-heading">
+            Simple <span className="text-neon-purple">Pricing</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -347,32 +364,32 @@ const Home = () => {
             ].map((plan, idx) => (
               <div
                 key={idx}
-                className={`relative p-8 rounded-3xl border ${
+                className={`relative p-10 rounded-3xl border ${
                   plan.popular
-                    ? "border-indigo-500 shadow-2xl scale-105"
-                    : "border-gray-200"
-                } flex flex-col`}
+                    ? "border-neon-purple bg-zinc-900/80 shadow-[0_0_30px_rgba(139,92,246,0.15)] scale-105 z-10"
+                    : "border-white/10 bg-card-bg hover:border-white/20"
+                } flex flex-col transition-all duration-300`}
               >
                 {plan.popular && (
-                  <span className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-indigo-500 text-white px-4 py-1 rounded-full text-sm font-medium">
+                  <span className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-neon-blue to-neon-purple text-white px-6 py-1.5 rounded-full text-sm font-bold shadow-lg">
                     Most Popular
                   </span>
                 )}
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="text-2xl font-bold text-white mb-2 font-heading">
                   {plan.name}
                 </h3>
-                <div className="text-5xl font-bold text-gray-900 mb-6">
+                <div className="text-5xl font-bold text-white mb-8">
                   {plan.price}
                   <span className="text-lg text-gray-500 font-normal">/mo</span>
                 </div>
-                <ul className="space-y-4 mb-8 flex-1">
+                <ul className="space-y-4 mb-10 flex-1">
                   {plan.features.map((feature, i) => (
                     <li
                       key={i}
-                      className="flex items-center justify-center gap-2 text-gray-600"
+                      className="flex items-center justify-center gap-3 text-gray-300"
                     >
                       <svg
-                        className="w-5 h-5 text-green-500"
+                        className="w-5 h-5 text-neon-cyan"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -389,10 +406,10 @@ const Home = () => {
                   ))}
                 </ul>
                 <button
-                  className={`w-full py-3 rounded-full font-semibold transition-all ${
+                  className={`w-full py-4 rounded-full font-bold transition-all text-lg ${
                     plan.popular
-                      ? "bg-indigo-600 text-white hover:bg-indigo-700"
-                      : "bg-gray-100 text-gray-900 hover:bg-gray-200"
+                      ? "bg-white text-black hover:bg-gray-100 hover:shadow-lg"
+                      : "bg-white/10 text-white hover:bg-white/20"
                   }`}
                 >
                   Choose {plan.name}
@@ -404,22 +421,35 @@ const Home = () => {
       </section>
 
       {/* Blog Preview Section */}
-      <section className="py-20 bg-zinc-900">
+      <section className="py-24 bg-deep-bg">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-end mb-12">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div>
-              <h2 className="text-4xl font-bold text-white mb-4">
-                Latest from the <span className="text-indigo-500">Blog</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-heading">
+                Latest from the <span className="text-neon-blue">Blog</span>
               </h2>
-              <p className="text-gray-400">
+              <p className="text-gray-400 text-lg">
                 Expert tips, nutrition advice, and success stories.
               </p>
             </div>
             <Link
               to="/blog"
-              className="hidden md:block text-indigo-400 hover:text-indigo-300 font-medium"
+              className="text-neon-blue hover:text-neon-purple font-medium flex items-center gap-2 transition-colors"
             >
-              View all articles &rarr;
+              View all articles
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                ></path>
+              </svg>
             </Link>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -445,26 +475,25 @@ const Home = () => {
             ].map((post, idx) => (
               <div
                 key={idx}
-                className="group cursor-pointer bg-zinc-800 rounded-2xl overflow-hidden hover:transform hover:-translate-y-2 transition-all duration-300"
+                className="group cursor-pointer bg-card-bg border border-white/5 rounded-3xl overflow-hidden hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-neon-blue/10 transition-all duration-300"
               >
-                <div className="h-48 overflow-hidden">
+                <div className="h-56 overflow-hidden relative">
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10"></div>
                   <img
                     src={post.img}
                     alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
-                <div className="p-6">
-                  <div className="flex justify-between text-xs text-gray-400 mb-3">
-                    <span className="text-indigo-400 font-medium">
-                      {post.category}
-                    </span>
+                <div className="p-8">
+                  <div className="flex justify-between text-xs font-bold uppercase tracking-wider text-gray-500 mb-4">
+                    <span className="text-neon-blue">{post.category}</span>
                     <span>{post.date}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-neon-purple transition-colors font-heading">
                     {post.title}
                   </h3>
-                  <p className="text-gray-400 text-sm line-clamp-2">
+                  <p className="text-gray-400 text-sm line-clamp-2 leading-relaxed">
                     Discover the secrets to achieving your fitness goals with
                     our comprehensive guide...
                   </p>
@@ -476,13 +505,21 @@ const Home = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 bg-indigo-600 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-neon-blue to-neon-purple opacity-90"></div>
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay"></div>
+
+        {/* Abstract Shapes */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+          <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-black/10 rounded-full blur-3xl"></div>
+        </div>
+
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-heading">
             Join the Movement
           </h2>
-          <p className="text-indigo-100 text-lg mb-10 max-w-2xl mx-auto">
+          <p className="text-white/90 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
             Subscribe to our newsletter for exclusive workout plans, nutrition
             tips, and member-only offers.
           </p>
@@ -490,11 +527,11 @@ const Home = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-indigo-200 focus:outline-none focus:bg-white/20 transition backdrop-blur-sm"
+              className="flex-1 px-8 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:bg-white/20 transition backdrop-blur-md"
             />
             <button
               type="button"
-              className="px-8 py-4 bg-white text-indigo-600 font-bold rounded-full hover:bg-gray-100 transition shadow-lg"
+              className="px-10 py-4 bg-white text-neon-purple font-bold rounded-full hover:bg-gray-100 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Subscribe
             </button>

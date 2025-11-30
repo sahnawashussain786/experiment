@@ -13,9 +13,14 @@ const ClassDetails = () => {
 
   if (!classItem) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-zinc-900 text-white">
-        <h2 className="text-3xl font-bold mb-4">Class Not Found</h2>
-        <Link to="/" className="text-indigo-500 hover:text-indigo-400">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-deep-bg text-white">
+        <h2 className="text-3xl font-bold mb-4 font-heading">
+          Class Not Found
+        </h2>
+        <Link
+          to="/"
+          className="text-neon-blue hover:text-neon-cyan transition-colors"
+        >
           Return Home
         </Link>
       </div>
@@ -23,56 +28,56 @@ const ClassDetails = () => {
   }
 
   return (
-    <div className="w-full min-h-screen bg-zinc-50">
+    <div className="w-full min-h-screen bg-deep-bg text-white">
       {/* Hero Section */}
       <div className="relative h-[50vh] min-h-[400px]">
         <img
           src={classItem.img}
           alt={classItem.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-60"
         />
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-deep-bg/60 via-deep-bg/40 to-deep-bg"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 animate-fade-in-up">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up font-heading">
             {classItem.title}
           </h1>
-          <div className="flex gap-4 text-white/90 text-sm md:text-base font-medium">
-            <span className="bg-indigo-600/80 px-4 py-1 rounded-full backdrop-blur-sm">
+          <div className="flex gap-4 text-white text-sm md:text-base font-medium">
+            <span className="bg-neon-purple/20 border border-neon-purple/40 px-6 py-2 rounded-full backdrop-blur-sm">
               {classItem.intensity} Intensity
             </span>
-            <span className="bg-zinc-800/80 px-4 py-1 rounded-full backdrop-blur-sm">
+            <span className="bg-neon-blue/20 border border-neon-blue/40 px-6 py-2 rounded-full backdrop-blur-sm">
               {classItem.duration}
             </span>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
         <div className="grid md:grid-cols-3 gap-12">
           {/* Main Content */}
           <div className="md:col-span-2 space-y-12">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                About the Class
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 font-heading">
+                About the <span className="text-neon-blue">Class</span>
               </h2>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <p className="text-gray-400 text-lg leading-relaxed">
                 {classItem.longDesc}
               </p>
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Key Benefits
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-8 font-heading">
+                Key <span className="text-neon-purple">Benefits</span>
               </h3>
               <div className="grid sm:grid-cols-2 gap-4">
                 {classItem.benefits.map((benefit, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100 shadow-sm"
+                    className="flex items-center gap-4 bg-card-bg p-5 rounded-2xl border border-white/5 hover:border-neon-blue/30 transition-all group"
                   >
-                    <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-neon-blue/10 flex items-center justify-center flex-shrink-0 border border-neon-blue/20 group-hover:border-neon-blue/50 transition-colors">
                       <svg
-                        className="w-4 h-4 text-indigo-600"
+                        className="w-5 h-5 text-neon-blue"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -85,7 +90,7 @@ const ClassDetails = () => {
                         ></path>
                       </svg>
                     </div>
-                    <span className="text-gray-700 font-medium">{benefit}</span>
+                    <span className="text-gray-300 font-medium">{benefit}</span>
                   </div>
                 ))}
               </div>
@@ -94,13 +99,13 @@ const ClassDetails = () => {
 
           {/* Sidebar */}
           <div className="space-y-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">
+            <div className="bg-card-bg p-8 rounded-3xl shadow-xl border border-white/5">
+              <h3 className="text-xl font-bold text-white mb-8 font-heading">
                 Class Schedule
               </h3>
-              <div className="flex items-start gap-4 mb-6">
+              <div className="flex items-start gap-4 mb-8">
                 <svg
-                  className="w-6 h-6 text-indigo-600 mt-1"
+                  className="w-7 h-7 text-neon-purple mt-1 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -113,27 +118,31 @@ const ClassDetails = () => {
                   ></path>
                 </svg>
                 <div>
-                  <p className="text-gray-900 font-medium mb-1">Weekly Times</p>
-                  <p className="text-gray-600 text-sm">{classItem.schedule}</p>
+                  <p className="text-white font-semibold mb-2">Weekly Times</p>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    {classItem.schedule}
+                  </p>
                 </div>
               </div>
               <button
                 onClick={() => navigate("/contact")}
-                className="w-full py-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-lg shadow-indigo-200"
+                className="w-full py-4 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-all transform hover:scale-[1.02]"
               >
                 Book a Session
               </button>
             </div>
 
-            <div className="bg-zinc-900 p-8 rounded-2xl text-white">
-              <h3 className="text-xl font-bold mb-4">Need Help?</h3>
-              <p className="text-gray-400 mb-6">
+            <div className="bg-zinc-900/80 p-8 rounded-3xl text-white border border-white/5">
+              <h3 className="text-xl font-bold mb-4 font-heading">
+                Need Help?
+              </h3>
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Not sure if this class is right for you? Talk to one of our
                 trainers.
               </p>
               <Link
                 to="/contact"
-                className="text-indigo-400 font-medium hover:text-indigo-300 flex items-center gap-2"
+                className="text-neon-cyan font-medium hover:text-neon-blue transition-colors flex items-center gap-2"
               >
                 Contact Us <span aria-hidden="true">&rarr;</span>
               </Link>

@@ -3,42 +3,49 @@ import { Link } from "react-router-dom";
 
 const Pricing = () => {
   return (
-    <div className="w-full overflow-x-hidden bg-zinc-50">
+    <div className="w-full overflow-x-hidden bg-deep-bg text-white">
       {/* Hero Section */}
-      <div className="relative w-full py-16 md:py-24 bg-zinc-900 text-center px-6">
-        <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 animate-fade-in-up">
-          INVEST IN{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">
-            YOURSELF
-          </span>
-        </h1>
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-          Choose the plan that fits your goals. No hidden fees, just results.
-        </p>
+      <div className="relative w-full py-24 md:py-32 bg-deep-bg text-center px-6 overflow-hidden">
+        {/* Background Glows */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon-purple/10 rounded-full blur-[120px]"></div>
+
+        <div className="relative z-10">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in-up font-heading">
+            INVEST IN{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">
+              YOURSELF
+            </span>
+          </h1>
+          <p className="text-gray-300 text-lg md:text-2xl max-w-2xl mx-auto font-light">
+            Choose the plan that fits your goals. No hidden fees, just results.
+          </p>
+        </div>
       </div>
 
       {/* Pricing Cards */}
-      <section className="py-16 md:py-20 max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="py-16 md:py-24 max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           {/* Basic Plan */}
-          <div className="bg-white p-8 rounded-3xl border border-gray-200 flex flex-col hover:shadow-xl transition-all">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Basic</h3>
-            <div className="text-5xl font-bold text-gray-900 mb-6">
+          <div className="bg-card-bg p-10 rounded-3xl border border-white/5 flex flex-col hover:border-neon-blue/30 hover:shadow-xl transition-all duration-300 group">
+            <h3 className="text-2xl font-bold text-white mb-2 font-heading">
+              Basic
+            </h3>
+            <div className="text-5xl font-bold text-white mb-6">
               $29<span className="text-lg text-gray-500 font-normal">/mo</span>
             </div>
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-400 mb-8 text-sm">
               Essential access for the self-motivated.
             </p>
-            <ul className="space-y-4 mb-8 flex-1">
+            <ul className="space-y-4 mb-10 flex-1">
               {[
                 "Access to gym floor",
                 "Locker room access",
                 "Free WiFi",
                 "Open 24/7",
               ].map((feature, i) => (
-                <li key={i} className="flex items-center gap-3 text-gray-700">
+                <li key={i} className="flex items-center gap-3 text-gray-300">
                   <svg
-                    className="w-5 h-5 text-green-500 flex-shrink-0"
+                    className="w-5 h-5 text-neon-blue flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -56,25 +63,27 @@ const Pricing = () => {
             </ul>
             <Link
               to="/payment/basic"
-              className="w-full py-3 rounded-full font-semibold bg-gray-100 text-gray-900 hover:bg-gray-200 transition-all text-center block"
+              className="w-full py-4 rounded-full font-bold bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-neon-blue/50 transition-all text-center block"
             >
               Choose Basic
             </Link>
           </div>
 
           {/* Pro Plan */}
-          <div className="relative bg-zinc-900 p-8 rounded-3xl border border-indigo-500 flex flex-col shadow-2xl transform md:-translate-y-4">
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-indigo-600 to-violet-600 text-white px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wide">
+          <div className="relative bg-zinc-900/80 p-10 rounded-3xl border border-neon-purple flex flex-col shadow-[0_0_40px_rgba(139,92,246,0.15)] transform md:-translate-y-4 z-20 backdrop-blur-sm">
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-neon-blue to-neon-purple text-white px-6 py-1.5 rounded-full text-sm font-bold uppercase tracking-wide shadow-lg">
               Most Popular
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">Pro</h3>
-            <div className="text-5xl font-bold text-white mb-6">
+            <h3 className="text-3xl font-bold text-white mb-2 font-heading">
+              Pro
+            </h3>
+            <div className="text-6xl font-bold text-white mb-6">
               $59<span className="text-lg text-gray-400 font-normal">/mo</span>
             </div>
-            <p className="text-gray-400 mb-8">
+            <p className="text-gray-300 mb-8 text-sm">
               Everything you need to level up.
             </p>
-            <ul className="space-y-4 mb-8 flex-1">
+            <ul className="space-y-4 mb-10 flex-1">
               {[
                 "All Basic features",
                 "Unlimited Group Classes",
@@ -82,9 +91,9 @@ const Pricing = () => {
                 "Sauna & Steam Room",
                 "1 Free PT Session",
               ].map((feature, i) => (
-                <li key={i} className="flex items-center gap-3 text-gray-300">
+                <li key={i} className="flex items-center gap-3 text-white">
                   <svg
-                    className="w-5 h-5 text-indigo-400 flex-shrink-0"
+                    className="w-5 h-5 text-neon-purple flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -102,22 +111,24 @@ const Pricing = () => {
             </ul>
             <Link
               to="/payment/pro"
-              className="w-full py-3 rounded-full font-bold bg-gradient-to-r from-indigo-600 to-violet-600 text-white hover:shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:scale-105 text-center block"
+              className="w-full py-4 rounded-full font-bold bg-gradient-to-r from-neon-blue to-neon-purple text-white hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-all transform hover:scale-105 text-center block"
             >
               Choose Pro
             </Link>
           </div>
 
           {/* Elite Plan */}
-          <div className="bg-white p-8 rounded-3xl border border-gray-200 flex flex-col hover:shadow-xl transition-all">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Elite</h3>
-            <div className="text-5xl font-bold text-gray-900 mb-6">
+          <div className="bg-card-bg p-10 rounded-3xl border border-white/5 flex flex-col hover:border-neon-cyan/30 hover:shadow-xl transition-all duration-300 group">
+            <h3 className="text-2xl font-bold text-white mb-2 font-heading">
+              Elite
+            </h3>
+            <div className="text-5xl font-bold text-white mb-6">
               $99<span className="text-lg text-gray-500 font-normal">/mo</span>
             </div>
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-400 mb-8 text-sm">
               Maximum results, maximum support.
             </p>
-            <ul className="space-y-4 mb-8 flex-1">
+            <ul className="space-y-4 mb-10 flex-1">
               {[
                 "All Pro features",
                 "Personal Training (2x/mo)",
@@ -126,9 +137,9 @@ const Pricing = () => {
                 "Towel Service",
                 "Smoothie Bar Discount",
               ].map((feature, i) => (
-                <li key={i} className="flex items-center gap-3 text-gray-700">
+                <li key={i} className="flex items-center gap-3 text-gray-300">
                   <svg
-                    className="w-5 h-5 text-green-500 flex-shrink-0"
+                    className="w-5 h-5 text-neon-cyan flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -146,7 +157,7 @@ const Pricing = () => {
             </ul>
             <Link
               to="/payment/elite"
-              className="w-full py-3 rounded-full font-semibold bg-gray-100 text-gray-900 hover:bg-gray-200 transition-all text-center block"
+              className="w-full py-4 rounded-full font-bold bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-neon-cyan/50 transition-all text-center block"
             >
               Choose Elite
             </Link>
@@ -155,22 +166,28 @@ const Pricing = () => {
       </section>
 
       {/* Comparison Table */}
-      <section className="py-20 bg-zinc-50">
+      <section className="py-24 bg-zinc-900/30">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Compare Plans
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-16 font-heading">
+            Compare <span className="text-neon-blue">Plans</span>
           </h2>
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse bg-white rounded-2xl shadow-lg overflow-hidden">
+            <table className="w-full text-left border-collapse bg-card-bg rounded-3xl shadow-xl overflow-hidden border border-white/5">
               <thead>
-                <tr className="bg-zinc-900 text-white">
-                  <th className="p-6">Features</th>
-                  <th className="p-6 text-center">Basic</th>
-                  <th className="p-6 text-center bg-indigo-600">Pro</th>
-                  <th className="p-6 text-center">Elite</th>
+                <tr className="bg-zinc-900/80 text-white border-b border-white/10">
+                  <th className="p-8 text-lg font-heading">Features</th>
+                  <th className="p-8 text-center text-lg font-heading">
+                    Basic
+                  </th>
+                  <th className="p-8 text-center bg-neon-purple/10 text-neon-purple text-lg font-heading border-x border-white/5">
+                    Pro
+                  </th>
+                  <th className="p-8 text-center text-lg font-heading">
+                    Elite
+                  </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100">
+              <tbody className="divide-y divide-white/5">
                 {[
                   {
                     feature: "Gym Access",
@@ -222,35 +239,35 @@ const Pricing = () => {
                     elite: true,
                   },
                 ].map((row, idx) => (
-                  <tr key={idx} className="hover:bg-gray-50 transition">
-                    <td className="p-6 font-medium text-gray-900">
+                  <tr key={idx} className="hover:bg-white/5 transition-colors">
+                    <td className="p-6 font-medium text-gray-300 pl-8">
                       {row.feature}
                     </td>
-                    <td className="p-6 text-center text-gray-600">
+                    <td className="p-6 text-center text-gray-500">
                       {row.basic === true ? (
-                        <span className="text-green-500">✔</span>
+                        <span className="text-neon-blue">✔</span>
                       ) : row.basic === false ? (
-                        <span className="text-gray-300">—</span>
+                        <span className="text-gray-600">—</span>
                       ) : (
-                        row.basic
+                        <span className="text-gray-300">{row.basic}</span>
                       )}
                     </td>
-                    <td className="p-6 text-center text-gray-900 bg-indigo-50/50 font-semibold">
+                    <td className="p-6 text-center text-white bg-neon-purple/5 border-x border-white/5 font-semibold">
                       {row.pro === true ? (
-                        <span className="text-green-500">✔</span>
+                        <span className="text-neon-purple">✔</span>
                       ) : row.pro === false ? (
-                        <span className="text-gray-300">—</span>
+                        <span className="text-gray-600">—</span>
                       ) : (
-                        row.pro
+                        <span className="text-white">{row.pro}</span>
                       )}
                     </td>
-                    <td className="p-6 text-center text-gray-600">
+                    <td className="p-6 text-center text-gray-500">
                       {row.elite === true ? (
-                        <span className="text-green-500">✔</span>
+                        <span className="text-neon-cyan">✔</span>
                       ) : row.elite === false ? (
-                        <span className="text-gray-300">—</span>
+                        <span className="text-gray-600">—</span>
                       ) : (
-                        row.elite
+                        <span className="text-gray-300">{row.elite}</span>
                       )}
                     </td>
                   </tr>
@@ -262,8 +279,8 @@ const Pricing = () => {
       </section>
 
       {/* Trust Badges */}
-      <section className="py-12 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+      <section className="py-16 bg-deep-bg border-y border-white/5">
+        <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 hover:opacity-100 transition-all duration-500">
           {[
             {
               text: "30-Day Money Back Guarantee",
@@ -282,9 +299,9 @@ const Pricing = () => {
               icon: "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z",
             },
           ].map((badge, idx) => (
-            <div key={idx} className="flex items-center gap-3">
+            <div key={idx} className="flex items-center gap-3 group">
               <svg
-                className="w-8 h-8 text-indigo-600"
+                className="w-8 h-8 text-neon-blue group-hover:text-neon-purple transition-colors"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -296,17 +313,19 @@ const Pricing = () => {
                   d={badge.icon}
                 ></path>
               </svg>
-              <span className="font-bold text-gray-900">{badge.text}</span>
+              <span className="font-bold text-gray-300 group-hover:text-white transition-colors">
+                {badge.text}
+              </span>
             </div>
           ))}
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white border-t border-gray-100">
+      <section className="py-24 bg-deep-bg">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Frequently Asked Questions
+          <h2 className="text-3xl font-bold text-center text-white mb-16 font-heading">
+            Frequently Asked <span className="text-neon-purple">Questions</span>
           </h2>
           <div className="space-y-6">
             {[
@@ -327,11 +346,11 @@ const Pricing = () => {
                 a: "Yes, day passes are available for $15 if you want to try us out before committing.",
               },
             ].map((item, idx) => (
-              <div key={idx} className="border-b border-gray-200 pb-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <div key={idx} className="border-b border-white/10 pb-6">
+                <h3 className="text-xl font-semibold text-white mb-2 font-heading">
                   {item.q}
                 </h3>
-                <p className="text-gray-600">{item.a}</p>
+                <p className="text-gray-400">{item.a}</p>
               </div>
             ))}
           </div>
@@ -339,14 +358,14 @@ const Pricing = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-zinc-900 text-center">
+      <section className="py-24 bg-zinc-900/50 text-center">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-white mb-6">
+          <h2 className="text-3xl font-bold text-white mb-6 font-heading">
             Still have questions?
           </h2>
           <Link
             to="/contact"
-            className="inline-block px-8 py-3 border border-white text-white rounded-full hover:bg-white hover:text-black transition-all"
+            className="inline-block px-10 py-4 border border-white/20 text-white rounded-full hover:bg-white hover:text-black transition-all font-bold"
           >
             Contact Support
           </Link>

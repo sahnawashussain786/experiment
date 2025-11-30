@@ -3,19 +3,22 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-zinc-950 text-gray-400 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
+    <footer className="w-full bg-deep-bg text-gray-400 border-t border-white/5 relative overflow-hidden">
+      {/* Glow effect */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-1 bg-gradient-to-r from-transparent via-neon-purple to-transparent opacity-50 blur-sm"></div>
+
+      <div className="max-w-7xl mx-auto px-6 py-12 md:py-16 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-6 group">
-              <div className="w-8 h-8 bg-gradient-to-br from-indigo-600 to-violet-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:shadow-indigo-500/50 transition-all">
+              <div className="w-8 h-8 bg-gradient-to-br from-neon-blue to-neon-purple rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-neon-blue/20 group-hover:shadow-neon-purple/50 transition-all duration-300">
                 F
               </div>
-              <span className="text-xl font-bold text-white tracking-wide">
-                FIT<span className="text-indigo-400">LIFE</span>
+              <span className="text-xl font-bold text-white tracking-wide font-heading">
+                FIT<span className="text-neon-blue">LIFE</span>
               </span>
             </Link>
-            <p className="text-sm leading-relaxed mb-6">
+            <p className="text-sm leading-relaxed mb-6 text-gray-400">
               Empowering you to reach your full potential through world-class
               training, community, and technology.
             </p>
@@ -24,10 +27,10 @@ const Footer = () => {
               {[1, 2, 3].map((_, i) => (
                 <div
                   key={i}
-                  className="w-8 h-8 bg-zinc-900 rounded-full flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all cursor-pointer"
+                  className="w-8 h-8 bg-zinc-900/50 border border-white/5 rounded-full flex items-center justify-center hover:bg-neon-blue hover:border-neon-blue hover:text-white transition-all cursor-pointer group"
                 >
                   <svg
-                    className="w-4 h-4"
+                    className="w-4 h-4 group-hover:scale-110 transition-transform"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -39,23 +42,29 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">Company</h4>
+            <h4 className="text-white font-bold mb-6 font-heading">Company</h4>
             <ul className="space-y-4 text-sm">
               <li>
                 <Link
                   to="/careers"
-                  className="hover:text-indigo-400 transition"
+                  className="hover:text-neon-cyan transition-colors duration-300"
                 >
                   Careers
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-indigo-400 transition">
+                <Link
+                  to="/blog"
+                  className="hover:text-neon-cyan transition-colors duration-300"
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/press" className="hover:text-indigo-400 transition">
+                <Link
+                  to="/press"
+                  className="hover:text-neon-cyan transition-colors duration-300"
+                >
                   Press
                 </Link>
               </li>
@@ -63,17 +72,22 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">Quick Links</h4>
+            <h4 className="text-white font-bold mb-6 font-heading">
+              Quick Links
+            </h4>
             <ul className="space-y-4 text-sm">
               <li>
-                <Link to="/" className="hover:text-indigo-400 transition">
+                <Link
+                  to="/"
+                  className="hover:text-neon-cyan transition-colors duration-300"
+                >
                   Home
                 </Link>
               </li>
               <li>
                 <Link
                   to="/services"
-                  className="hover:text-indigo-400 transition"
+                  className="hover:text-neon-cyan transition-colors duration-300"
                 >
                   Services
                 </Link>
@@ -81,20 +95,23 @@ const Footer = () => {
               <li>
                 <Link
                   to="/pricing"
-                  className="hover:text-indigo-400 transition"
+                  className="hover:text-neon-cyan transition-colors duration-300"
                 >
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-indigo-400 transition">
+                <Link
+                  to="/about"
+                  className="hover:text-neon-cyan transition-colors duration-300"
+                >
                   About Us
                 </Link>
               </li>
               <li>
                 <Link
                   to="/contact"
-                  className="hover:text-indigo-400 transition"
+                  className="hover:text-neon-cyan transition-colors duration-300"
                 >
                   Contact
                 </Link>
@@ -103,22 +120,28 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">Support</h4>
+            <h4 className="text-white font-bold mb-6 font-heading">Support</h4>
             <ul className="space-y-4 text-sm">
               <li>
-                <Link to="/faq" className="hover:text-indigo-400 transition">
+                <Link
+                  to="/faq"
+                  className="hover:text-neon-cyan transition-colors duration-300"
+                >
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link to="/terms" className="hover:text-indigo-400 transition">
+                <Link
+                  to="/terms"
+                  className="hover:text-neon-cyan transition-colors duration-300"
+                >
                   Terms of Service
                 </Link>
               </li>
               <li>
                 <Link
                   to="/privacy"
-                  className="hover:text-indigo-400 transition"
+                  className="hover:text-neon-cyan transition-colors duration-300"
                 >
                   Privacy Policy
                 </Link>
@@ -127,7 +150,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-8 text-center text-sm">
+        <div className="border-t border-white/5 pt-8 text-center text-sm text-gray-500">
           <p>
             &copy; {new Date().getFullYear()} FitLife Gym. All rights reserved.
           </p>

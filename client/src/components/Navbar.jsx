@@ -15,26 +15,26 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="h-[80px] relative w-full px-6 md:px-16 lg:px-24 xl:px-32 flex items-center justify-between z-30 bg-black/50 backdrop-blur-md border-b border-white/10 transition-all">
+    <nav className="fixed top-0 left-0 w-full h-[80px] px-6 md:px-16 lg:px-24 xl:px-32 flex items-center justify-between z-50 bg-deep-bg/80 backdrop-blur-md border-b border-white/5 transition-all">
       <Link
         to="/"
         className="flex items-center gap-2 group"
         onClick={closeMenu}
       >
         {/* Logo Placeholder */}
-        <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-violet-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:shadow-indigo-500/50 transition-all">
+        <div className="w-10 h-10 bg-gradient-to-br from-neon-blue to-neon-purple rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-neon-blue/20 group-hover:shadow-neon-purple/50 transition-all duration-300">
           F
         </div>
-        <span className="text-2xl font-bold text-white tracking-wide">
-          FIT<span className="text-indigo-400">LIFE</span>
+        <span className="text-2xl font-bold text-white tracking-wide font-heading">
+          FIT<span className="text-neon-blue">LIFE</span>
         </span>
       </Link>
 
       {/* Desktop navigation */}
-      <ul className="text-gray-300 md:flex hidden items-center gap-8 font-medium">
+      <ul className="text-gray-400 md:flex hidden items-center gap-8 font-medium">
         <li>
           <Link
-            className="hover:text-white hover:shadow-[0_0_10px_rgba(129,140,248,0.5)] transition-all duration-300"
+            className="hover:text-white hover:shadow-[0_0_15px_rgba(99,102,241,0.5)] transition-all duration-300"
             to="/"
           >
             Home
@@ -42,7 +42,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            className="hover:text-white hover:shadow-[0_0_10px_rgba(129,140,248,0.5)] transition-all duration-300"
+            className="hover:text-white hover:shadow-[0_0_15px_rgba(99,102,241,0.5)] transition-all duration-300"
             to="/services"
           >
             Services
@@ -50,7 +50,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            className="hover:text-white hover:shadow-[0_0_10px_rgba(129,140,248,0.5)] transition-all duration-300"
+            className="hover:text-white hover:shadow-[0_0_15px_rgba(99,102,241,0.5)] transition-all duration-300"
             to="/pricing"
           >
             Pricing
@@ -58,7 +58,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            className="hover:text-white hover:shadow-[0_0_10px_rgba(129,140,248,0.5)] transition-all duration-300"
+            className="hover:text-white hover:shadow-[0_0_15px_rgba(99,102,241,0.5)] transition-all duration-300"
             to="/about"
           >
             About Us
@@ -66,7 +66,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            className="hover:text-white hover:shadow-[0_0_10px_rgba(129,140,248,0.5)] transition-all duration-300"
+            className="hover:text-white hover:shadow-[0_0_15px_rgba(99,102,241,0.5)] transition-all duration-300"
             to="/contact"
           >
             Contact
@@ -80,14 +80,14 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-4">
           <SignedOut>
             <Link to="/sign-in">
-              <button className="text-gray-300 hover:text-white font-medium transition-colors cursor-pointer">
+              <button className="text-gray-400 hover:text-white font-medium transition-colors cursor-pointer hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">
                 Sign In
               </button>
             </Link>
             <Link to="/sign-up">
               <button
                 type="button"
-                className="bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-indigo-500/30 active:scale-95 transition-all w-32 h-10 rounded-full cursor-pointer"
+                className="bg-gradient-to-r from-neon-blue to-neon-purple text-white text-sm font-semibold hover:shadow-lg hover:shadow-neon-blue/40 active:scale-95 transition-all w-32 h-10 rounded-full cursor-pointer"
               >
                 Get Started
               </button>
@@ -144,12 +144,12 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="mobile-menu absolute top-[80px] left-0 w-full bg-zinc-900/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden shadow-2xl z-40 animate-fade-in-up">
-          <ul className="flex flex-col space-y-6 text-gray-300 text-lg font-medium text-center mb-6">
+        <div className="mobile-menu fixed top-[80px] left-0 w-full h-[calc(100vh-80px)] bg-deep-bg/95 backdrop-blur-xl border-t border-white/10 p-6 md:hidden z-40 animate-fade-in-up flex flex-col">
+          <ul className="flex flex-col space-y-6 text-gray-300 text-xl font-medium text-center mb-auto mt-10">
             <li>
               <Link
                 to="/"
-                className="hover:text-white transition block py-2"
+                className="hover:text-neon-cyan transition block py-2"
                 onClick={closeMenu}
               >
                 Home
@@ -158,7 +158,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/services"
-                className="hover:text-white transition block py-2"
+                className="hover:text-neon-cyan transition block py-2"
                 onClick={closeMenu}
               >
                 Services
@@ -167,7 +167,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/pricing"
-                className="hover:text-white transition block py-2"
+                className="hover:text-neon-cyan transition block py-2"
                 onClick={closeMenu}
               >
                 Pricing
@@ -176,7 +176,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/about"
-                className="hover:text-white transition block py-2"
+                className="hover:text-neon-cyan transition block py-2"
                 onClick={closeMenu}
               >
                 About Us
@@ -185,31 +185,31 @@ const Navbar = () => {
             <li>
               <Link
                 to="/contact"
-                className="hover:text-white transition block py-2"
+                className="hover:text-neon-cyan transition block py-2"
                 onClick={closeMenu}
               >
                 Contact
               </Link>
             </li>
           </ul>
-          <div className="flex flex-col gap-4 items-center border-t border-white/10 pt-6">
+          <div className="flex flex-col gap-4 items-center border-t border-white/10 pt-8 pb-10">
             <SignedOut>
               <Link to="/sign-in" onClick={closeMenu} className="w-full">
-                <button className="w-full text-gray-300 hover:text-white font-medium transition-colors cursor-pointer py-2">
+                <button className="w-full text-gray-300 hover:text-white font-medium transition-colors cursor-pointer py-3 border border-white/10 rounded-xl">
                   Sign In
                 </button>
               </Link>
               <Link to="/sign-up" onClick={closeMenu} className="w-full">
                 <button
                   type="button"
-                  className="w-full bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold hover:shadow-lg hover:shadow-indigo-500/30 active:scale-95 transition-all py-3 rounded-full cursor-pointer"
+                  className="w-full bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold hover:shadow-lg hover:shadow-neon-blue/30 active:scale-95 transition-all py-4 rounded-xl cursor-pointer text-lg"
                 >
                   Get Started
                 </button>
               </Link>
             </SignedOut>
             <SignedIn>
-              <div className="flex items-center justify-center w-full py-2">
+              <div className="flex items-center justify-center w-full py-4">
                 <UserButton afterSignOutUrl="/" />
               </div>
             </SignedIn>
