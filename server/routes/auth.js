@@ -66,4 +66,39 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// @route   POST /api/auth/sync
+// @desc    Sync user from Clerk to MongoDB
+// @access  Public
+router.post("/sync", async (req, res) => {
+  const { clerkId, name, email } = req.body;
+
+  try {
+    let user = await User.findOne({ $or: [{ clerkId }, { email }] });
+
+    if (!user) {
+      user = await User.create({
+        clerkId,
+        name,
+        email,
+      });
+    } else {
+      // Update existing user details to match Clerk
+      user.name = name || user.name;
+      user.email = email || user.email;
+      user.clerkId = clerkId;
+      await user.save();
+    }
+
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      clerkId: user.clerkId,
+      token: generateToken(user._id),
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 export default router;

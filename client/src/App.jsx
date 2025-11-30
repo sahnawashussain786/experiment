@@ -12,6 +12,8 @@ import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 import ClassDetails from "./pages/ClassDetails";
 import ScrollToTop from "./components/ScrollToTop";
+import { SignIn, SignUp, useUser } from "@clerk/clerk-react";
+import AuthSync from "./components/AuthSync";
 
 const Layout = () => {
   return (
@@ -26,6 +28,7 @@ const Layout = () => {
 const App = () => {
   return (
     <BrowserRouter>
+      <AuthSync />
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
