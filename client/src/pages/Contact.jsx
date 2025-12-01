@@ -31,19 +31,23 @@ const Contact = () => {
   return (
     <div className="w-full overflow-x-hidden bg-deep-bg text-white">
       {/* Hero Section */}
-      <div className="relative w-full h-[30vh] md:h-[40vh] bg-deep-bg flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-bg via-deep-bg/90 to-deep-bg"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+      <div className="relative w-full h-[40vh] md:h-[50vh] min-h-[300px] bg-deep-bg flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-deep-bg via-deep-bg/90 to-deep-bg z-0"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 z-0"></div>
 
         {/* Glows */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-neon-blue/10 rounded-full blur-[100px]"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-neon-blue/10 rounded-full blur-[80px] md:blur-[120px] animate-pulse-glow"></div>
 
-        <div className="relative z-10 text-center px-6">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 animate-fade-in-up font-heading">
-            GET IN <span className="text-neon-cyan">TOUCH</span>
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 animate-fade-in-up font-heading tracking-tight">
+            GET IN{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-cyan">
+              TOUCH
+            </span>
           </h1>
-          <p className="text-gray-300 text-base md:text-xl font-light">
-            We'd love to hear from you. Visit us, call us, or send a message.
+          <p className="text-gray-300 text-base sm:text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+            We'd love to hear from you. Visit us, call us, or send a message to
+            start your journey.
           </p>
         </div>
       </div>
@@ -51,15 +55,22 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           {/* Contact Info */}
-          <div className="order-2 md:order-1">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 font-heading">
-              Contact <span className="text-neon-purple">Information</span>
-            </h2>
-            <div className="space-y-8">
-              <div className="flex items-start gap-6 group">
-                <div className="w-14 h-14 bg-neon-blue/10 rounded-2xl flex items-center justify-center flex-shrink-0 border border-neon-blue/20 group-hover:border-neon-blue/50 transition-colors">
+          <div className="order-2 md:order-1 space-y-8 md:space-y-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:mb-8 font-heading">
+                Contact <span className="text-neon-purple">Information</span>
+              </h2>
+              <p className="text-gray-400 leading-relaxed mb-8 md:mb-10">
+                Have questions? We're here to help. Reach out to us through any
+                of the following channels.
+              </p>
+            </div>
+
+            <div className="space-y-6 md:space-y-8">
+              <div className="flex items-start gap-5 md:gap-6 group p-4 rounded-2xl hover:bg-white/5 transition-colors duration-300">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-neon-blue/10 rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0 border border-neon-blue/20 group-hover:border-neon-blue/50 group-hover:shadow-[0_0_15px_rgba(99,102,241,0.3)] transition-all">
                   <svg
-                    className="w-7 h-7 text-neon-blue"
+                    className="w-6 h-6 md:w-7 md:h-7 text-neon-blue"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -79,10 +90,10 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2 font-heading">
+                  <h3 className="text-lg md:text-xl font-bold text-white mb-1 md:mb-2 font-heading group-hover:text-neon-blue transition-colors">
                     Visit Us
                   </h3>
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-gray-400 leading-relaxed text-sm md:text-base">
                     123 Fitness Blvd, Suite 100
                     <br />
                     Los Angeles, CA 90001
@@ -90,10 +101,10 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-6 group">
-                <div className="w-14 h-14 bg-neon-purple/10 rounded-2xl flex items-center justify-center flex-shrink-0 border border-neon-purple/20 group-hover:border-neon-purple/50 transition-colors">
+              <div className="flex items-start gap-5 md:gap-6 group p-4 rounded-2xl hover:bg-white/5 transition-colors duration-300">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-neon-purple/10 rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0 border border-neon-purple/20 group-hover:border-neon-purple/50 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.3)] transition-all">
                   <svg
-                    className="w-7 h-7 text-neon-purple"
+                    className="w-6 h-6 md:w-7 md:h-7 text-neon-purple"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -107,20 +118,22 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2 font-heading">
+                  <h3 className="text-lg md:text-xl font-bold text-white mb-1 md:mb-2 font-heading group-hover:text-neon-purple transition-colors">
                     Call Us
                   </h3>
-                  <p className="text-gray-400">+1 (555) 123-4567</p>
-                  <p className="text-gray-500 text-sm mt-1">
+                  <p className="text-gray-400 text-sm md:text-base">
+                    +1 (555) 123-4567
+                  </p>
+                  <p className="text-gray-500 text-xs md:text-sm mt-1">
                     Mon-Fri: 8am - 8pm
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-6 group">
-                <div className="w-14 h-14 bg-neon-cyan/10 rounded-2xl flex items-center justify-center flex-shrink-0 border border-neon-cyan/20 group-hover:border-neon-cyan/50 transition-colors">
+              <div className="flex items-start gap-5 md:gap-6 group p-4 rounded-2xl hover:bg-white/5 transition-colors duration-300">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-neon-cyan/10 rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0 border border-neon-cyan/20 group-hover:border-neon-cyan/50 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all">
                   <svg
-                    className="w-7 h-7 text-neon-cyan"
+                    className="w-6 h-6 md:w-7 md:h-7 text-neon-cyan"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -134,76 +147,83 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2 font-heading">
+                  <h3 className="text-lg md:text-xl font-bold text-white mb-1 md:mb-2 font-heading group-hover:text-neon-cyan transition-colors">
                     Email Us
                   </h3>
-                  <p className="text-gray-400">hello@fitlife.com</p>
-                  <p className="text-gray-400">support@fitlife.com</p>
+                  <p className="text-gray-400 text-sm md:text-base">
+                    hello@fitlife.com
+                  </p>
+                  <p className="text-gray-400 text-sm md:text-base">
+                    support@fitlife.com
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-card-bg p-8 md:p-10 rounded-3xl shadow-2xl border border-white/5 order-1 md:order-2 relative overflow-hidden">
+          <div className="bg-card-bg p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl shadow-2xl border border-white/5 order-1 md:order-2 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-neon-purple/5 rounded-full blur-[80px]"></div>
-            <h2 className="text-3xl font-bold text-white mb-8 font-heading relative z-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 md:mb-8 font-heading relative z-10">
               Send us a Message
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-5 md:space-y-6 relative z-10"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-2 ml-1">
                     First Name
                   </label>
                   <input
                     name="firstName"
                     type="text"
-                    className="w-full px-4 py-3 rounded-xl bg-deep-bg border border-white/10 text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue outline-none transition placeholder-gray-600"
+                    className="w-full px-4 py-3 rounded-xl bg-zinc-900/50 border border-white/10 text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue outline-none transition-all placeholder-gray-600 hover:border-white/20 min-h-[48px]"
                     placeholder="John"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-2 ml-1">
                     Last Name
                   </label>
                   <input
                     name="lastName"
                     type="text"
-                    className="w-full px-4 py-3 rounded-xl bg-deep-bg border border-white/10 text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue outline-none transition placeholder-gray-600"
+                    className="w-full px-4 py-3 rounded-xl bg-zinc-900/50 border border-white/10 text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue outline-none transition-all placeholder-gray-600 hover:border-white/20 min-h-[48px]"
                     placeholder="Doe"
                     required
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-400 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-2 ml-1">
                   Email Address
                 </label>
                 <input
                   name="email"
                   type="email"
-                  className="w-full px-4 py-3 rounded-xl bg-deep-bg border border-white/10 text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue outline-none transition placeholder-gray-600"
+                  className="w-full px-4 py-3 rounded-xl bg-zinc-900/50 border border-white/10 text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue outline-none transition-all placeholder-gray-600 hover:border-white/20 min-h-[48px]"
                   placeholder="john@example.com"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-400 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-2 ml-1">
                   Message
                 </label>
                 <textarea
                   name="message"
                   rows="4"
-                  className="w-full px-4 py-3 rounded-xl bg-deep-bg border border-white/10 text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue outline-none transition placeholder-gray-600"
+                  className="w-full px-4 py-3 rounded-xl bg-zinc-900/50 border border-white/10 text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue outline-none transition-all placeholder-gray-600 hover:border-white/20 resize-none"
                   placeholder="How can we help you?"
                   required
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full py-4 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-all transform hover:scale-[1.02] cursor-pointer"
+                className="w-full py-4 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-all transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer min-h-[56px] flex items-center justify-center text-base md:text-lg tracking-wide"
               >
                 Send Message
               </button>
@@ -244,12 +264,12 @@ const Contact = () => {
         </div>
 
         {/* Best Time to Visit */}
-        <div className="mt-24">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-16 font-heading">
+        <div className="mt-20 md:mt-24">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12 md:mb-16 font-heading">
             Best Time to <span className="text-neon-blue">Visit</span>
           </h2>
-          <div className="bg-card-bg p-10 rounded-3xl shadow-xl border border-white/5">
-            <div className="flex items-end justify-between h-56 gap-2 md:gap-6">
+          <div className="bg-card-bg p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl shadow-xl border border-white/5 overflow-x-auto">
+            <div className="flex items-end justify-between h-48 sm:h-56 gap-3 md:gap-6 min-w-[300px]">
               {[
                 { time: "6am", height: "h-32", busy: "High" },
                 { time: "9am", height: "h-20", busy: "Med" },
@@ -261,19 +281,19 @@ const Contact = () => {
               ].map((slot, idx) => (
                 <div
                   key={idx}
-                  className="flex-1 flex flex-col justify-end group"
+                  className="flex-1 flex flex-col justify-end group cursor-pointer"
                 >
                   <div className="relative w-full">
                     <div
-                      className={`w-full ${slot.height} bg-zinc-800 rounded-t-xl group-hover:bg-gradient-to-t group-hover:from-neon-blue group-hover:to-neon-purple transition-all duration-500 relative overflow-hidden`}
+                      className={`w-full ${slot.height} bg-zinc-800 rounded-t-lg md:rounded-t-xl group-hover:bg-gradient-to-t group-hover:from-neon-blue group-hover:to-neon-purple transition-all duration-500 relative overflow-hidden`}
                     >
                       <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-white text-black text-xs font-bold py-1 px-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg whitespace-nowrap">
-                        {slot.busy} Traffic
+                      <div className="absolute -top-8 md:-top-10 left-1/2 transform -translate-x-1/2 bg-white text-black text-[10px] md:text-xs font-bold py-1 px-2 md:px-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg whitespace-nowrap z-20">
+                        {slot.busy}
                       </div>
                     </div>
                   </div>
-                  <div className="text-center text-xs md:text-sm text-gray-500 mt-4 font-medium group-hover:text-white transition-colors">
+                  <div className="text-center text-[10px] sm:text-xs md:text-sm text-gray-500 mt-3 md:mt-4 font-medium group-hover:text-white transition-colors">
                     {slot.time}
                   </div>
                 </div>

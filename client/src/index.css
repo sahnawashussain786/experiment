@@ -2,51 +2,94 @@
 @import "tailwindcss";
 
 @theme {
+  /* Color Palette */
   --color-neon-blue: #6366f1;
   --color-neon-purple: #8b5cf6;
   --color-neon-cyan: #06b6d4;
   --color-deep-bg: #09090b;
   --color-card-bg: #18181b;
 
+  /* Typography */
   --font-sans: "Inter", sans-serif;
   --font-heading: "Outfit", sans-serif;
 
-  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+  /* Fluid Typography - Mobile First */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.3rem + 1vw, 1.875rem);
+  --text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.25rem);
+  --text-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3rem);
+  --text-5xl: clamp(2.5rem, 2rem + 2.5vw, 3.75rem);
+  --text-6xl: clamp(3rem, 2.25rem + 3.75vw, 4.5rem);
+  --text-7xl: clamp(3.5rem, 2.5rem + 5vw, 5.5rem);
+  --text-8xl: clamp(4rem, 3rem + 5vw, 6.5rem);
+
+  /* Responsive Spacing */
+  --space-xs: clamp(0.5rem, 0.45rem + 0.25vw, 0.75rem);
+  --space-sm: clamp(0.75rem, 0.65rem + 0.5vw, 1rem);
+  --space-md: clamp(1rem, 0.85rem + 0.75vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+  --space-xl: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+  --space-2xl: clamp(3rem, 2rem + 5vw, 5rem);
+  --space-3xl: clamp(4rem, 3rem + 5vw, 6rem);
+
+  /* Animations - Optimized for Mobile */
+  --animate-fade-in-up: fadeInUp 0.6s ease-out forwards;
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-glow: pulseGlow 4s ease-in-out infinite;
+  --animate-slide-in: slideIn 0.4s ease-out forwards;
 
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(15px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
+
   @keyframes float {
     0%,
     100% {
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-20px);
+      transform: translateY(-15px);
     }
   }
+
   @keyframes pulseGlow {
     0%,
     100% {
-      box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+      box-shadow: 0 0 8px rgba(99, 102, 241, 0.2);
     }
     50% {
-      box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 }
 
+/* Root & HTML Setup */
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -54,9 +97,138 @@ body {
   color: white;
   font-family: var(--font-sans);
   overflow-x: hidden;
+  /* Safe area insets for notched devices */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
+/* Selection Styling */
 ::selection {
   background-color: var(--color-neon-purple);
   color: white;
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Reduce animations on touch devices for performance */
+  * {
+    animation-duration: 0.4s !important;
+  }
+
+  /* Improve tap highlight */
+  * {
+    -webkit-tap-highlight-color: rgba(99, 102, 241, 0.1);
+  }
+
+  /* Remove hover effects on touch devices */
+  .hover\:scale-105:hover,
+  .hover\:scale-110:hover {
+    transform: scale(1);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus Visible for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-neon-blue);
+  outline-offset: 2px;
+}
+
+/* Smooth Scrolling Container */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile-Optimized Gradients */
+@media (max-width: 767px) {
+  .bg-gradient-to-r,
+  .bg-gradient-to-br,
+  .bg-gradient-to-t {
+    /* Simplify gradients on mobile for performance */
+    background-attachment: scroll;
+  }
+}
+
+/* Touch-Friendly Minimum Sizes */
+button,
+a,
+input,
+textarea,
+select {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Improve Text Readability on Mobile */
+@media (max-width: 767px) {
+  body {
+    font-size: 16px; /* Prevent zoom on iOS */
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+}
+
+/* Utility Classes for Responsive Design */
+.container-safe {
+  padding-left: max(1.5rem, env(safe-area-inset-left));
+  padding-right: max(1.5rem, env(safe-area-inset-right));
+}
+
+/* Mobile-First Responsive Padding */
+.responsive-padding {
+  padding: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .responsive-padding {
+    padding: var(--space-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-padding {
+    padding: var(--space-xl);
+  }
+}
+
+/* Optimized Blur for Mobile */
+@media (max-width: 767px) {
+  .backdrop-blur-md,
+  .backdrop-blur-xl {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  /* Reduce blur radius on decorative elements */
+  .blur-\[100px\],
+  .blur-\[120px\],
+  .blur-\[128px\] {
+    filter: blur(60px);
+  }
 }

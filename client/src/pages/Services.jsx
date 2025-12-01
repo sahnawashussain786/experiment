@@ -6,20 +6,24 @@ const Services = () => {
   return (
     <div className="w-full overflow-x-hidden bg-deep-bg text-white">
       {/* Hero Section */}
-      <div className="relative w-full h-[40vh] md:h-[50vh] min-h-[300px]">
-        <div className="absolute inset-0">
+      <div className="relative w-full h-[40vh] md:h-[50vh] min-h-[300px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
           <img
             src={servicesHero}
             alt="Services Hero"
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-50 md:opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-deep-bg/80 via-deep-bg/50 to-deep-bg"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-deep-bg/90 via-deep-bg/60 to-deep-bg"></div>
         </div>
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 animate-fade-in-up font-heading">
-            OUR <span className="text-neon-blue">SERVICES</span>
+
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 max-w-5xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 animate-fade-in-up font-heading tracking-tight">
+            OUR{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-cyan">
+              SERVICES
+            </span>
           </h1>
-          <p className="text-gray-300 text-base md:text-xl max-w-2xl font-light">
+          <p className="text-gray-200 text-base sm:text-lg md:text-xl max-w-2xl font-light leading-relaxed drop-shadow-lg">
             Comprehensive fitness solutions designed to help you reach your peak
             performance.
           </p>
@@ -28,9 +32,9 @@ const Services = () => {
 
       {/* Services Grid */}
       <section className="py-16 md:py-24 bg-deep-bg relative">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-neon-purple/10 rounded-full blur-[100px]"></div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="absolute top-0 left-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-neon-purple/10 rounded-full blur-[80px] md:blur-[120px]"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {[
               {
                 title: "Personal Training",
@@ -39,6 +43,7 @@ const Services = () => {
                 color: "text-neon-blue",
                 bg: "bg-neon-blue/10",
                 border: "hover:border-neon-blue/50",
+                shadow: "group-hover:shadow-[0_0_20px_rgba(99,102,241,0.2)]",
               },
               {
                 title: "Group Classes",
@@ -47,6 +52,7 @@ const Services = () => {
                 color: "text-neon-purple",
                 bg: "bg-neon-purple/10",
                 border: "hover:border-neon-purple/50",
+                shadow: "group-hover:shadow-[0_0_20px_rgba(139,92,246,0.2)]",
               },
               {
                 title: "Nutrition Coaching",
@@ -55,6 +61,7 @@ const Services = () => {
                 color: "text-neon-cyan",
                 bg: "bg-neon-cyan/10",
                 border: "hover:border-neon-cyan/50",
+                shadow: "group-hover:shadow-[0_0_20px_rgba(6,182,212,0.2)]",
               },
               {
                 title: "Recovery & Spa",
@@ -63,17 +70,18 @@ const Services = () => {
                 color: "text-pink-500",
                 bg: "bg-pink-500/10",
                 border: "hover:border-pink-500/50",
+                shadow: "group-hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]",
               },
             ].map((service, idx) => (
               <div
                 key={idx}
-                className={`flex flex-col sm:flex-row gap-6 p-8 rounded-3xl border border-white/5 shadow-lg hover:shadow-2xl transition-all duration-300 bg-card-bg ${service.border} group`}
+                className={`flex flex-col sm:flex-row gap-6 p-6 sm:p-8 rounded-2xl md:rounded-3xl border border-white/5 shadow-lg hover:shadow-2xl transition-all duration-300 bg-card-bg ${service.border} ${service.shadow} group`}
               >
                 <div
-                  className={`w-16 h-16 ${service.bg} ${service.color} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg mx-auto sm:mx-0 group-hover:scale-110 transition-transform`}
+                  className={`w-14 h-14 sm:w-16 sm:h-16 ${service.bg} ${service.color} rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg mx-auto sm:mx-0 group-hover:scale-110 transition-transform duration-300`}
                 >
                   <svg
-                    className="w-8 h-8"
+                    className="w-7 h-7 sm:w-8 sm:h-8"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -87,10 +95,10 @@ const Services = () => {
                   </svg>
                 </div>
                 <div className="text-center sm:text-left">
-                  <h3 className="text-2xl font-bold text-white mb-3 font-heading group-hover:text-neon-cyan transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 font-heading group-hover:text-neon-cyan transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-gray-400 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
                     {service.desc}
                   </p>
                 </div>
@@ -101,15 +109,15 @@ const Services = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-24 bg-zinc-900/50 text-white relative">
+      <section className="py-16 md:py-24 bg-zinc-900/50 text-white relative">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <h2 className="text-4xl font-bold text-center mb-16 font-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 md:mb-16 font-heading">
             How It <span className="text-neon-purple">Works</span>
           </h2>
-          <div className="grid md:grid-cols-3 gap-12 relative">
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12 relative">
             {/* Connecting Line (Desktop) */}
-            <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-neon-blue to-neon-purple transform -translate-y-1/2 z-0 opacity-30"></div>
+            <div className="hidden md:block absolute top-10 md:top-12 left-0 w-full h-0.5 bg-gradient-to-r from-neon-blue to-neon-purple transform -translate-y-1/2 z-0 opacity-30"></div>
 
             {[
               {
@@ -129,15 +137,17 @@ const Services = () => {
               },
             ].map((item, idx) => (
               <div key={idx} className="relative z-10 text-center group">
-                <div className="w-24 h-24 bg-deep-bg rounded-full flex items-center justify-center mx-auto mb-8 border-4 border-zinc-800 shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:border-neon-blue transition-colors duration-300">
-                  <span className="text-3xl font-bold text-neon-blue font-heading">
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-deep-bg rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8 border-4 border-zinc-800 shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:border-neon-blue transition-colors duration-300">
+                  <span className="text-2xl md:text-3xl font-bold text-neon-blue font-heading">
                     {item.step}
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 font-heading text-white">
+                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 font-heading text-white">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed">{item.desc}</p>
+                <p className="text-gray-400 leading-relaxed text-sm md:text-base max-w-xs mx-auto">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>

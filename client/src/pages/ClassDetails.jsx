@@ -30,22 +30,25 @@ const ClassDetails = () => {
   return (
     <div className="w-full min-h-screen bg-deep-bg text-white">
       {/* Hero Section */}
-      <div className="relative h-[50vh] min-h-[400px]">
-        <img
-          src={classItem.img}
-          alt={classItem.title}
-          className="w-full h-full object-cover opacity-60"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-bg/60 via-deep-bg/40 to-deep-bg"></div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up font-heading">
+      {/* Hero Section */}
+      <div className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={classItem.img}
+            alt={classItem.title}
+            className="w-full h-full object-cover opacity-50 md:opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-deep-bg/90 via-deep-bg/60 to-deep-bg"></div>
+        </div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 z-10">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in-up font-heading tracking-tight drop-shadow-lg">
             {classItem.title}
           </h1>
-          <div className="flex gap-4 text-white text-sm md:text-base font-medium">
-            <span className="bg-neon-purple/20 border border-neon-purple/40 px-6 py-2 rounded-full backdrop-blur-sm">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 text-white text-sm md:text-base font-medium">
+            <span className="bg-neon-purple/20 border border-neon-purple/40 px-5 py-2 rounded-full backdrop-blur-md shadow-[0_0_15px_rgba(139,92,246,0.2)]">
               {classItem.intensity} Intensity
             </span>
-            <span className="bg-neon-blue/20 border border-neon-blue/40 px-6 py-2 rounded-full backdrop-blur-sm">
+            <span className="bg-neon-blue/20 border border-neon-blue/40 px-5 py-2 rounded-full backdrop-blur-md shadow-[0_0_15px_rgba(99,102,241,0.2)]">
               {classItem.duration}
             </span>
           </div>
@@ -69,15 +72,15 @@ const ClassDetails = () => {
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-8 font-heading">
                 Key <span className="text-neon-purple">Benefits</span>
               </h3>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                 {classItem.benefits.map((benefit, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-4 bg-card-bg p-5 rounded-2xl border border-white/5 hover:border-neon-blue/30 transition-all group"
+                    className="flex items-center gap-4 bg-card-bg p-4 sm:p-5 rounded-xl md:rounded-2xl border border-white/5 hover:border-neon-blue/30 transition-all group shadow-lg hover:shadow-xl"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-neon-blue/10 flex items-center justify-center flex-shrink-0 border border-neon-blue/20 group-hover:border-neon-blue/50 transition-colors">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-neon-blue/10 flex items-center justify-center flex-shrink-0 border border-neon-blue/20 group-hover:border-neon-blue/50 transition-colors">
                       <svg
-                        className="w-5 h-5 text-neon-blue"
+                        className="w-5 h-5 sm:w-6 sm:h-6 text-neon-blue"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -90,7 +93,9 @@ const ClassDetails = () => {
                         ></path>
                       </svg>
                     </div>
-                    <span className="text-gray-300 font-medium">{benefit}</span>
+                    <span className="text-gray-300 font-medium text-sm sm:text-base">
+                      {benefit}
+                    </span>
                   </div>
                 ))}
               </div>

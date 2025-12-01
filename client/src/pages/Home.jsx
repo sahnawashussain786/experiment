@@ -11,43 +11,43 @@ const Home = () => {
   return (
     <div className="w-full overflow-x-hidden bg-deep-bg text-white">
       {/* Hero Section */}
-      <div className="relative w-full h-screen min-h-[600px] flex items-center">
+      <div className="relative w-full min-h-[500px] sm:min-h-[600px] md:h-screen flex items-center">
         <div className="absolute inset-0 z-0">
           <img
             src={heroImg}
             alt="Gym Hero"
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-50 md:opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-deep-bg via-deep-bg/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-deep-bg via-deep-bg/90 md:via-deep-bg/80 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-deep-bg via-transparent to-transparent"></div>
         </div>
 
-        {/* Animated Glows */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-purple/30 rounded-full blur-[128px] animate-pulse-glow"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-blue/20 rounded-full blur-[128px] animate-pulse-glow delay-1000"></div>
+        {/* Animated Glows - Reduced on mobile */}
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-neon-purple/20 md:bg-neon-purple/30 rounded-full blur-[80px] md:blur-[128px] animate-pulse-glow"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 md:w-96 md:h-96 bg-neon-blue/15 md:bg-neon-blue/20 rounded-full blur-[80px] md:blur-[128px] animate-pulse-glow delay-1000"></div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-16 lg:px-24 xl:px-32 flex flex-col justify-center h-full">
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold leading-tight mb-6 animate-fade-in-up font-heading">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24 flex flex-col justify-center h-full py-20 md:py-0">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-4 md:mb-6 animate-fade-in-up font-heading">
             UNLEASH YOUR <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue via-neon-purple to-neon-cyan">
               FULL POTENTIAL
             </span>
           </h1>
-          <p className="text-gray-300 text-lg sm:text-xl md:text-2xl max-w-2xl mb-10 font-light leading-relaxed">
+          <p className="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl mb-8 md:mb-10 font-light leading-relaxed">
             Join the elite fitness community where technology meets sweat.
             Experience world-class equipment, expert trainers, and a vibe that
             pushes you further.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
             <Link
               to="/sign-in"
-              className="px-10 py-4 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-bold rounded-full hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-all transform hover:scale-105 text-center text-lg border border-white/10"
+              className="px-8 md:px-10 py-4 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-bold rounded-full hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-all transform hover:scale-105 text-center text-base md:text-lg border border-white/10 min-h-[56px] flex items-center justify-center"
             >
               Start Your Journey
             </Link>
             <Link
               to="/pricing"
-              className="px-10 py-4 bg-white/5 backdrop-blur-md border border-white/10 text-white font-bold rounded-full hover:bg-white/10 hover:border-neon-cyan/50 transition-all text-center text-lg hover:text-neon-cyan"
+              className="px-8 md:px-10 py-4 bg-white/5 backdrop-blur-md border border-white/10 text-white font-bold rounded-full hover:bg-white/10 hover:border-neon-cyan/50 transition-all text-center text-base md:text-lg hover:text-neon-cyan min-h-[56px] flex items-center justify-center"
             >
               View Pricing
             </Link>
@@ -73,8 +73,8 @@ const Home = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="bg-zinc-900/50 backdrop-blur-sm py-16 border-y border-white/5 relative z-20">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div className="bg-zinc-900/50 backdrop-blur-sm py-12 md:py-16 border-y border-white/5 relative z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
           {[
             { label: "Active Members", value: "2,000+" },
             { label: "Expert Trainers", value: "50+" },
@@ -82,10 +82,10 @@ const Home = () => {
             { label: "Satisfaction", value: "99%" },
           ].map((stat, index) => (
             <div key={index} className="flex flex-col items-center group">
-              <span className="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:text-neon-cyan transition-colors font-heading">
+              <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 group-hover:text-neon-cyan transition-colors font-heading">
                 {stat.value}
               </span>
-              <span className="text-gray-400 text-sm uppercase tracking-wider font-medium">
+              <span className="text-gray-400 text-xs sm:text-sm uppercase tracking-wider font-medium">
                 {stat.label}
               </span>
             </div>
@@ -94,33 +94,33 @@ const Home = () => {
       </div>
 
       {/* Classes Section */}
-      <section className="py-24 bg-deep-bg relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-heading">
+      <section className="py-16 md:py-24 bg-deep-bg relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6 font-heading">
               Our Premium <span className="text-neon-purple">Classes</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg px-4">
               From high-intensity cardio to serene yoga sessions, we have
               something for every fitness level. Click on a class to learn more.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {classes.map((item, idx) => (
               <Link
                 to={`/classes/${item.id}`}
                 key={idx}
-                className="group relative overflow-hidden rounded-3xl border border-white/5 bg-card-bg shadow-2xl cursor-pointer block hover:border-neon-purple/50 transition-all duration-500"
+                className="group relative overflow-hidden rounded-2xl md:rounded-3xl border border-white/5 bg-card-bg shadow-2xl cursor-pointer block hover:border-neon-purple/50 transition-all duration-500"
               >
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all z-10"></div>
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-full h-96 object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-72 md:h-96 object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-deep-bg via-deep-bg/90 to-transparent z-20">
-                  <h3 className="text-2xl font-bold text-white mb-2 font-heading group-hover:text-neon-cyan transition-colors">
+                <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 bg-gradient-to-t from-deep-bg via-deep-bg/90 to-transparent z-20">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2 font-heading group-hover:text-neon-cyan transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-gray-300 text-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300">
@@ -134,27 +134,27 @@ const Home = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-zinc-900/30 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-blue/10 rounded-full blur-[100px]"></div>
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
+      <section className="py-16 md:py-24 bg-zinc-900/30 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-neon-blue/10 rounded-full blur-[80px] md:blur-[100px]"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid md:grid-cols-2 gap-10 md:gap-16 items-center relative z-10">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 font-heading">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-8 font-heading">
               Why Choose <span className="text-neon-blue">FitLife?</span>
             </h2>
-            <p className="text-gray-400 mb-10 text-lg leading-relaxed">
+            <p className="text-gray-400 mb-8 md:mb-10 text-base md:text-lg leading-relaxed">
               We're not just a gym; we're a community dedicated to your
               transformation. Our facilities are designed to inspire and
               motivate.
             </p>
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {[
                 "24/7 Access to all locations",
                 "Personalized nutrition plans",
                 "Mobile app for tracking progress",
                 "Sauna and recovery zones",
               ].map((feature, i) => (
-                <div key={i} className="flex items-center gap-4 group">
-                  <div className="w-8 h-8 rounded-full bg-neon-blue/20 flex items-center justify-center group-hover:bg-neon-blue transition-colors">
+                <div key={i} className="flex items-center gap-3 md:gap-4 group">
+                  <div className="w-8 h-8 min-w-[32px] rounded-full bg-neon-blue/20 flex items-center justify-center group-hover:bg-neon-blue transition-colors">
                     <svg
                       className="w-4 h-4 text-neon-blue group-hover:text-white transition-colors"
                       fill="none"
@@ -169,16 +169,16 @@ const Home = () => {
                       ></path>
                     </svg>
                   </div>
-                  <span className="text-lg text-gray-200 group-hover:text-white transition-colors">
+                  <span className="text-base md:text-lg text-gray-200 group-hover:text-white transition-colors">
                     {feature}
                   </span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="space-y-6 mt-12">
-              <div className="h-56 bg-card-bg border border-white/5 rounded-3xl p-8 flex flex-col justify-center items-center hover:bg-zinc-800 hover:border-neon-blue/30 hover:shadow-[0_0_20px_rgba(99,102,241,0.1)] transition-all duration-300 group">
+          <div className="grid grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-0">
+            <div className="space-y-4 md:space-y-6 md:mt-12">
+              <div className="h-40 sm:h-48 md:h-56 bg-card-bg border border-white/5 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 flex flex-col justify-center items-center hover:bg-zinc-800 hover:border-neon-blue/30 hover:shadow-[0_0_20px_rgba(99,102,241,0.1)] transition-all duration-300 group">
                 <svg
                   className="w-12 h-12 text-neon-blue mb-6 group-hover:scale-110 transition-transform"
                   fill="none"
