@@ -1,217 +1,187 @@
 import React from "react";
-import aboutHero from "../assets/about_hero.png";
-import trainer1 from "../assets/trainer1.png";
-import trainer2 from "../assets/trainer2.png";
-import trainer3 from "../assets/strength.png"; // Using strength image as placeholder for 3rd trainer
-import yogaImg from "../assets/yoga.png";
-import cardioImg from "../assets/cardio.png";
+import { motion } from "framer-motion";
 
 const AboutUs = () => {
+  const stats = [
+    { label: "Years of Excellence", value: "10+" },
+    { label: "Certified Trainers", value: "50+" },
+    { label: "Happy Members", value: "2k+" },
+    { label: "Locations", value: "5" },
+  ];
+
+  const timeline = [
+    {
+      year: "2013",
+      title: "The Beginning",
+      description:
+        "FitLife was founded with a single location and a vision to change lives through fitness.",
+    },
+    {
+      year: "2016",
+      title: "Expansion",
+      description:
+        "Opened 3 new locations and launched our signature HIIT program.",
+    },
+    {
+      year: "2019",
+      title: "Digital Evolution",
+      description:
+        "Launched our mobile app and virtual training platform to reach members worldwide.",
+    },
+    {
+      year: "2023",
+      title: "Community First",
+      description:
+        "Reached 2,000 active members and established the FitLife Community Fund.",
+    },
+  ];
+
   return (
-    <div className="w-full overflow-x-hidden bg-deep-bg text-white">
+    <div className="bg-deep-bg text-white min-h-screen pt-20 overflow-x-hidden">
       {/* Hero Section */}
-      <div className="relative w-full h-[40vh] md:h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src={aboutHero}
-            alt="About Us Hero"
-            className="w-full h-full object-cover opacity-50 md:opacity-60"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-deep-bg/90 via-deep-bg/60 to-deep-bg"></div>
-        </div>
-
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 max-w-5xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 animate-fade-in-up font-heading tracking-tight">
-            OUR{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-pink-500">
-              STORY
+      <section className="relative py-24 px-6 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-purple/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-5xl md:text-7xl font-bold mb-8 font-heading"
+          >
+            Our{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">
+              Story
             </span>
-          </h1>
-          <p className="text-gray-200 text-base sm:text-lg md:text-xl max-w-2xl font-light leading-relaxed drop-shadow-lg">
-            More than just a gym. We are a movement dedicated to physical and
-            mental transformation.
-          </p>
-        </div>
-      </div>
-
-      {/* Our Story Section */}
-      <section className="py-16 md:py-24 bg-deep-bg relative overflow-hidden">
-        <div className="absolute top-1/2 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-neon-blue/10 rounded-full blur-[80px] md:blur-[120px]"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid md:grid-cols-2 gap-10 md:gap-16 items-center relative z-10">
-          <div className="order-2 md:order-1">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 md:mb-8 font-heading">
-              Built on <span className="text-neon-blue">Passion</span>
-            </h2>
-            <div className="space-y-4 md:space-y-6 text-gray-400 text-base sm:text-lg leading-relaxed">
-              <p>
-                Founded in 2015, FitLife began with a simple mission: to create
-                a space where everyone, regardless of their fitness level, feels
-                empowered to push their limits. What started as a small garage
-                gym has grown into a state-of-the-art facility, but our core
-                values remain the same.
-              </p>
-              <p>
-                We believe in the power of community, the science of training,
-                and the art of discipline. Every piece of equipment, every
-                class, and every trainer is handpicked to ensure you get the
-                best experience possible.
-              </p>
-            </div>
-          </div>
-          <div className="relative h-64 sm:h-80 md:h-96 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl order-1 md:order-2 border border-white/5 group">
-            <div className="absolute inset-0 bg-neon-purple/20 group-hover:bg-transparent transition-all duration-500 z-10"></div>
-            <img
-              src={aboutHero}
-              alt="Gym History"
-              className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
-            />
-          </div>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+          >
+            We believe that fitness is not just about the body, but about the
+            mind and spirit. Our mission is to empower individuals to reach
+            their full potential through holistic wellness.
+          </motion.p>
         </div>
       </section>
 
-      {/* Stats Counter */}
-      <section className="py-20 bg-zinc-900/50 border-y border-white/5 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            { label: "Years Strong", value: "8+" },
-            { label: "Happy Members", value: "15k+" },
-            { label: "Locations", value: "12" },
-            { label: "Awards Won", value: "25+" },
-          ].map((stat, idx) => (
-            <div key={idx} className="flex flex-col items-center group">
-              <span className="text-4xl md:text-6xl font-bold mb-2 text-white group-hover:text-neon-cyan transition-colors font-heading">
+      {/* Stats Grid */}
+      <section className="py-16 bg-zinc-900/30 border-y border-white/5">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="text-center"
+            >
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2 font-heading">
                 {stat.value}
-              </span>
-              <span className="text-gray-400 uppercase tracking-wider text-sm font-medium">
+              </div>
+              <div className="text-neon-blue text-sm uppercase tracking-wider font-bold">
                 {stat.label}
-              </span>
-            </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 md:py-24 bg-deep-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12 md:mb-16 font-heading">
-            Meet The <span className="text-neon-purple">Team</span>
+      {/* Timeline Section */}
+      <section className="py-32 px-6 relative">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 font-heading">
+            The <span className="text-neon-cyan">Journey</span>
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {[
-              { name: "John Doe", role: "Head Trainer", img: trainer1 },
-              { name: "Sarah Smith", role: "Yoga Instructor", img: trainer2 },
-              { name: "Mike Johnson", role: "Strength Coach", img: trainer3 },
-            ].map((trainer, idx) => (
-              <div
-                key={idx}
-                className="group relative overflow-hidden rounded-2xl md:rounded-3xl bg-card-bg border border-white/5 hover:border-neon-purple/30 transition-all duration-300 shadow-lg"
+          <div className="relative border-l-2 border-white/10 ml-4 md:ml-1/2 space-y-16">
+            {timeline.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="relative pl-12 md:pl-0"
               >
-                <div className="h-72 sm:h-80 md:h-96 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-t from-deep-bg via-transparent to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
-                  <img
-                    src={trainer.img}
-                    alt={trainer.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                  />
-                </div>
-                <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 text-left z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1 font-heading group-hover:text-neon-purple transition-colors">
-                    {trainer.name}
-                  </h3>
-                  <p className="text-neon-blue font-medium text-sm md:text-base">
-                    {trainer.role}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                {/* Dot */}
+                <div className="absolute top-0 left-[-9px] w-4 h-4 rounded-full bg-neon-blue shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
 
-      {/* Values Section */}
-      <section className="py-24 bg-zinc-900/30">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-5xl font-bold text-center text-white mb-16 font-heading">
-            Our Core <span className="text-neon-blue">Values</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Community",
-                desc: "We support each other. Your win is our win.",
-                icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
-                color: "text-neon-blue",
-                bg: "bg-neon-blue/10",
-              },
-              {
-                title: "Excellence",
-                desc: "We strive for perfection in everything we do.",
-                icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-                color: "text-neon-purple",
-                bg: "bg-neon-purple/10",
-              },
-              {
-                title: "Growth",
-                desc: "Constant improvement is the only way forward.",
-                icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
-                color: "text-neon-cyan",
-                bg: "bg-neon-cyan/10",
-              },
-            ].map((value, i) => (
-              <div
-                key={i}
-                className="bg-card-bg p-10 rounded-3xl shadow-lg hover:shadow-2xl transition border border-white/5 hover:border-white/20 group"
-              >
                 <div
-                  className={`w-16 h-16 ${value.bg} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
-                >
-                  <svg
-                    className={`w-8 h-8 ${value.color}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d={value.icon}
-                    ></path>
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4 font-heading group-hover:text-neon-blue transition-colors">
-                  {value.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed">{value.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section className="py-24 bg-deep-bg">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-5xl font-bold text-center text-white mb-16 font-heading">
-            Inside <span className="text-neon-purple">FitLife</span>
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
-            {[aboutHero, trainer1, trainer2, trainer3, yogaImg, cardioImg].map(
-              (img, idx) => (
-                <div
-                  key={idx}
-                  className={`rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border border-white/5 hover:border-neon-blue/50 ${
-                    idx === 0 || idx === 3 ? "col-span-2 row-span-2" : ""
+                  className={`md:flex items-start justify-between gap-10 ${
+                    index % 2 === 0 ? "md:flex-row-reverse" : ""
                   }`}
                 >
+                  <div className="md:w-1/2 mb-4 md:mb-0"></div> {/* Spacer */}
+                  <div
+                    className={`md:w-1/2 ${
+                      index % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12"
+                    }`}
+                  >
+                    <span className="text-neon-purple font-bold text-xl mb-2 block">
+                      {item.year}
+                    </span>
+                    <h3 className="text-2xl font-bold text-white mb-3 font-heading">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-400 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-32 bg-zinc-900/20">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 font-heading">
+            Meet the <span className="text-neon-lime">Team</span>
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Alex Rivera",
+                role: "Head Trainer",
+                img: "https://ui-avatars.com/api/?name=Alex+Rivera&background=6366f1&color=fff",
+              },
+              {
+                name: "Sarah Chen",
+                role: "Yoga Instructor",
+                img: "https://ui-avatars.com/api/?name=Sarah+Chen&background=06b6d4&color=fff",
+              },
+              {
+                name: "Marcus Johnson",
+                role: "Strength Coach",
+                img: "https://ui-avatars.com/api/?name=Marcus+Johnson&background=8b5cf6&color=fff",
+              },
+            ].map((member, idx) => (
+              <motion.div
+                key={idx}
+                whileHover={{ y: -10 }}
+                className="bg-card-bg rounded-3xl p-8 border border-white/5 text-center group hover:border-neon-lime/30 transition-all duration-300"
+              >
+                <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-white/5 group-hover:border-neon-lime transition-colors">
                   <img
-                    src={img}
-                    alt="Gym Gallery"
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700 opacity-80 hover:opacity-100"
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
                   />
                 </div>
-              )
-            )}
+                <h3 className="text-2xl font-bold text-white mb-2 font-heading">
+                  {member.name}
+                </h3>
+                <p className="text-neon-lime font-medium mb-4">{member.role}</p>
+                <p className="text-gray-400 text-sm">
+                  "Dedicated to helping you achieve your personal best through
+                  science-based training."
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

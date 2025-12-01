@@ -2,18 +2,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Color Palette */
+  /* Color Palette - Midnight & Neon */
   --color-neon-blue: #6366f1;
   --color-neon-purple: #8b5cf6;
   --color-neon-cyan: #06b6d4;
-  --color-deep-bg: #09090b;
-  --color-card-bg: #18181b;
+  --color-neon-lime: #a3e635;
+  --color-deep-bg: #050507; /* Deeper black for higher contrast */
+  --color-card-bg: #121215;
+  --color-card-hover: #1c1c21;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9ca3af;
+  --color-text-accent: #e2e8f0;
 
   /* Typography */
   --font-sans: "Inter", sans-serif;
   --font-heading: "Outfit", sans-serif;
 
-  /* Fluid Typography - Mobile First */
+  /* Fluid Typography */
   --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
   --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
   --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
@@ -27,7 +32,7 @@
   --text-7xl: clamp(3.5rem, 2.5rem + 5vw, 5.5rem);
   --text-8xl: clamp(4rem, 3rem + 5vw, 6.5rem);
 
-  /* Responsive Spacing */
+  /* Spacing */
   --space-xs: clamp(0.5rem, 0.45rem + 0.25vw, 0.75rem);
   --space-sm: clamp(0.75rem, 0.65rem + 0.5vw, 1rem);
   --space-md: clamp(1rem, 0.85rem + 0.75vw, 1.5rem);
@@ -36,22 +41,10 @@
   --space-2xl: clamp(3rem, 2rem + 5vw, 5rem);
   --space-3xl: clamp(4rem, 3rem + 5vw, 6rem);
 
-  /* Animations - Optimized for Mobile */
-  --animate-fade-in-up: fadeInUp 0.6s ease-out forwards;
+  /* Animations */
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-glow: pulseGlow 4s ease-in-out infinite;
-  --animate-slide-in: slideIn 0.4s ease-out forwards;
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(15px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  --animate-shimmer: shimmer 2s linear infinite;
 
   @keyframes float {
     0%,
@@ -66,21 +59,19 @@
   @keyframes pulseGlow {
     0%,
     100% {
-      box-shadow: 0 0 8px rgba(99, 102, 241, 0.2);
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
     }
     50% {
-      box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+      box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
     }
   }
 
-  @keyframes slideIn {
+  @keyframes shimmer {
     from {
-      opacity: 0;
-      transform: translateX(-20px);
+      background-position: 0 0;
     }
     to {
-      opacity: 1;
-      transform: translateX(0);
+      background-position: -200% 0;
     }
   }
 }
@@ -94,12 +85,29 @@ html {
 
 body {
   background-color: var(--color-deep-bg);
-  color: white;
+  color: var(--color-text-primary);
   font-family: var(--font-sans);
   overflow-x: hidden;
-  /* Safe area insets for notched devices */
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-deep-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neon-blue);
 }
 
 /* Selection Styling */
@@ -108,127 +116,75 @@ body {
   color: white;
 }
 
-/* Touch Device Optimizations */
-@media (hover: none) and (pointer: coarse) {
-  /* Reduce animations on touch devices for performance */
-  * {
-    animation-duration: 0.4s !important;
-  }
-
-  /* Improve tap highlight */
-  * {
-    -webkit-tap-highlight-color: rgba(99, 102, 241, 0.1);
-  }
-
-  /* Remove hover effects on touch devices */
-  .hover\:scale-105:hover,
-  .hover\:scale-110:hover {
-    transform: scale(1);
-  }
+/* Glassmorphism Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+.glass-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Focus Visible for Accessibility */
+.glass-nav {
+  background: rgba(5, 5, 7, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Text Gradients */
+.text-gradient {
+  background: linear-gradient(
+    to right,
+    var(--color-neon-blue),
+    var(--color-neon-purple),
+    var(--color-neon-cyan)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-lime {
+  background: linear-gradient(
+    to right,
+    var(--color-neon-lime),
+    var(--color-neon-cyan)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Focus Visible */
 *:focus-visible {
   outline: 2px solid var(--color-neon-blue);
-  outline-offset: 2px;
+  outline-offset: 4px;
 }
 
-/* Smooth Scrolling Container */
-.smooth-scroll {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Mobile-Optimized Gradients */
-@media (max-width: 767px) {
-  .bg-gradient-to-r,
-  .bg-gradient-to-br,
-  .bg-gradient-to-t {
-    /* Simplify gradients on mobile for performance */
-    background-attachment: scroll;
-  }
-}
-
-/* Touch-Friendly Minimum Sizes */
-button,
-a,
-input,
-textarea,
-select {
-  min-height: 44px;
-  min-width: 44px;
-}
-
-/* Improve Text Readability on Mobile */
+/* Mobile Optimizations */
 @media (max-width: 767px) {
   body {
-    font-size: 16px; /* Prevent zoom on iOS */
+    font-size: 16px;
     line-height: 1.6;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    line-height: 1.3;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-
-  p {
-    line-height: 1.7;
-  }
-}
-
-/* Utility Classes for Responsive Design */
-.container-safe {
-  padding-left: max(1.5rem, env(safe-area-inset-left));
-  padding-right: max(1.5rem, env(safe-area-inset-right));
-}
-
-/* Mobile-First Responsive Padding */
-.responsive-padding {
-  padding: var(--space-md);
-}
-
-@media (min-width: 768px) {
-  .responsive-padding {
-    padding: var(--space-lg);
-  }
-}
-
-@media (min-width: 1024px) {
-  .responsive-padding {
-    padding: var(--space-xl);
-  }
-}
-
-/* Optimized Blur for Mobile */
-@media (max-width: 767px) {
-  .backdrop-blur-md,
-  .backdrop-blur-xl {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
-  /* Reduce blur radius on decorative elements */
-  .blur-\[100px\],
-  .blur-\[120px\],
-  .blur-\[128px\] {
-    filter: blur(60px);
+  .glass,
+  .glass-card,
+  .glass-nav {
+    backdrop-filter: blur(
+      12px
+    ); /* Slightly stronger blur on mobile for readability */
   }
 }
