@@ -7,9 +7,14 @@
       "config": {
         "distDir": "dist"
       }
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/assets/(.*)", "dest": "/client/assets/$1" },
     { "src": "/(.*)\\.(ico|png|jpg|jpeg|svg|css|js)", "dest": "/client/$1.$2" },
     { "handle": "filesystem" },

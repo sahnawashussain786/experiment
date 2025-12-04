@@ -13,7 +13,7 @@ const Footer = () => {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
 
-      const response = await fetch("http://localhost:5000/api/subscribe", {
+      const response = await fetch("/api/subscribe", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
