@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.js";
 import paymentRoutes from "./routes/payment.js";
+import subscribeRoutes from "./routes/subscribe.js";
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ mongoose
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/payment", paymentRoutes);
+app.use("/api/subscribe", subscribeRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running...");
