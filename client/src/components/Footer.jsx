@@ -23,7 +23,18 @@ const Footer = () => {
       });
 
       clearTimeout(timeoutId);
-      const data = await response.json();
+
+      let data;
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        data = await response.json();
+      } else {
+        const text = await response.text();
+        console.error("Non-JSON response:", text);
+        throw new Error(
+          `Server Error: ${response.status} ${response.statusText}`
+        );
+      }
 
       if (response.ok) {
         setStatus({ type: "success", message: data.message });
@@ -41,8 +52,11 @@ const Footer = () => {
       let errorMessage = "Failed to connect to server";
 
       if (error.name === "AbortError") {
-        errorMessage =
-          "Request timed out. Please check if the server is running.";
+        errorMessage = "Request timed out. Server took too long.";
+      } else if (error.message.includes("Server Error")) {
+        errorMessage = error.message;
+      } else if (error.message === "Failed to fetch") {
+        errorMessage = "Network error. Check your connection.";
       }
 
       setStatus({ type: "error", message: errorMessage });
