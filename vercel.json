@@ -13,11 +13,8 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/assets/(.*)", "dest": "/client/assets/$1" },
-    { "src": "/(.*)\\.(ico|png|jpg|jpeg|svg|css|js)", "dest": "/client/$1.$2" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/client/index.html" }
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/client/index.html" }
   ]
 }
