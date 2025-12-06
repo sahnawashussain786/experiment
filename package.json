@@ -4,7 +4,7 @@
   "type": "module",
   "description": "Serverless API functions for FitLife",
   "scripts": {
-    "build": "cd client && npm install && npm run build"
+    "build": "cd client && npm install && npm run build && mkdir -p ../public && cp -r dist/* ../public"
   },
   "dependencies": {
     "mongoose": "^8.0.0",
