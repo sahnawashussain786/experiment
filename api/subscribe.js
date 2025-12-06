@@ -121,8 +121,8 @@ export default async function handler(req, res) {
     });
 
     // Verify transporter configuration
-    await transporter.verify();
-    console.log("Email transporter verified successfully");
+    // await transporter.verify();
+    // console.log("Email transporter verified successfully");
 
     // Email options
     const mailOptions = {
